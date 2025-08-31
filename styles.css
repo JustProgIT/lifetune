@@ -1,0 +1,4132 @@
+/* ─── Reset & Full-Height Layout ─── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Animation Keyframes ─── */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #fff2eb;
+  color: #fff;
+  line-height: 1.5;
+  padding-bottom: env(safe-area-inset-bottom); /* Add bottom padding to account for the device's safe-area inset */
+}
+
+.result-cards {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem,3vh,1.5rem);
+  width: 100%;
+  max-width: min(90%,400px);
+  flex: 0 0 auto;
+  min-height: none;
+  overflow:visible;
+}
+.card {
+  border: 1px solid #FFCD60;
+  border-radius: 1rem;
+  padding: clamp(0.75rem,3vh,1.5rem);
+  text-align: left;
+}
+.card h2 {
+  font-size: clamp(0.85rem,3vw,1.1rem);
+  margin-bottom: 0.5rem;
+  color: #FFCD60;
+  line-height: 1.3;
+}
+.card p {
+  font-size: clamp(0.75rem,2.5vw,0.9rem);
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/************************************
+  INDEX SECTION
+************************************/
+/* ─── Header & Footer ─── */
+.site-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(0.75rem,5vh,1.5rem) 1rem;
+    text-align: center;
+}
+.site-footer {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: clamp(0.75rem,5vh,1.5rem) 1rem;
+}
+.subscribe-btn {
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  padding: clamp(0.5rem,1vh,0.75rem) clamp(1rem,3vw,1.5rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.subscribe-btn:hover {
+  opacity: 0.9;
+}
+.logo {
+  height: 4rem !important;
+}
+.site-footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem,4vw,2rem);
+}
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(0.75rem,2vh,0.875rem);
+  opacity: 0.75;
+  transition: opacity .2s;
+}
+.site-footer a:hover { opacity: 1; }
+
+/* ─── Hero (fills the "flex gap") ─── */
+.hero {
+  flex: 0 1 auto;                      /* take all space between header & footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;                 /* center horizontally */
+  justify-content: center;             /* center vertically */
+  padding: clamp(1rem,5vh,3rem) 1rem 0; /* top padding only */
+  text-align: center;
+  min-height: 0;                       /* allow inner flex to shrink if needed */
+  margin-bottom: 6rem;
+}
+
+/* Hero Text */
+.hero-text {
+  max-width: min(90%,600px);
+
+}
+.hero-text h1 {
+  font-size: clamp(4rem,7vh,6rem);
+  line-height: 1.2;
+  white-space: nowrap;
+  margin-left: 15%;
+  margin-top: 7%;
+  animation: slideDown 0.8s ease-out 0.2s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.subtitle {
+  font-size: clamp(2.2rem,4vh,2.5rem);
+  opacity: .85;
+  margin-top: clamp(.5rem,2vh,1rem);
+  white-space: nowrap;
+  margin-left: 15%;
+  margin-top: 17px;
+  animation: slideDown 0.8s ease-out 0.5s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/* Illustration */
+.hero-illustration {
+  margin-bottom: clamp(0.5rem,4vh,1.5rem);
+}
+.hero-illustration img {
+  width: clamp(150px,30vh,400px);  /* fluid up to 400px */
+  height: auto;
+  display: block;
+}
+
+/* Primary Button */
+.btn-primary {
+  display: block;	
+  background: linear-gradient(135deg, #FFCD60 0%, #FFD580 100%);
+  border: none;
+  color: #fff;
+  font-size: clamp(1.3rem,3vh,1.6rem);
+  font-weight: bold;
+  padding: clamp(0.75rem,2.5vh,1.25rem) clamp(2rem,5vw,3.5rem);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 40px auto 0;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(255, 205, 96, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 0.8s ease-out 0.8s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 205, 96, 0.4);
+  background: linear-gradient(135deg, #FFD580 0%, #FFCD60 100%);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 20px rgba(255, 205, 96, 0.3);
+}
+
+/************************************
+  ONBOARDING SECTION
+************************************/
+/* ─── Onboarding fills the gap ─── */
+main.onboarding {
+  flex: 1 1 auto;               /* fill between header & footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* start from top */
+  align-items: center;
+  padding: clamp(1rem,4vh,2rem) 1rem;
+  min-height: 0;                /* allow children to shrink */
+  text-align: center;
+  margin-bottom: 45rem;
+  gap: 2rem;
+}
+
+/* Onboarding page background */
+body.onboarding-page {
+  background-image: url('img/computer background LIFE.TUNE.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* AI Chat page background */
+body.aichat-page {
+  background-image: url('img/computer background LIFE.TUNE.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Custom styling for Chat button text color */
+.ai-tab#tab-chat {
+  color: rgb(68, 68, 68) !important;
+}
+
+.ai-tab#tab-chat.active {
+  color: rgb(68, 68, 68) !important;
+}
+
+/* ─── Welcome Section ─── */
+.welcome-section {
+  margin-top: 2rem;
+  max-width: 600px;
+}
+
+.welcome-title {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #001423;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  animation: slideDown 0.8s ease-out 0.2s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.welcome-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #666;
+  line-height: 1.5;
+  opacity: 0.8;
+  animation: slideDown 0.8s ease-out 0.4s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/* ─── Choice buttons with icons ─── */
+.onboarding-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 1rem;
+}
+
+.btn-choice {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  color: #001423;
+  border: 2px solid #e9ecef;
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-choice::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 205, 96, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-choice:hover {
+  border-color: #FFCD60;
+  box-shadow: 0 4px 16px rgba(255, 205, 96, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-choice:hover::before {
+  left: 100%;
+}
+
+.btn-choice:active {
+  transform: translateY(0);
+}
+
+.choice-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #FFCD60, #FFD580);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.choice-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #001423;
+}
+
+.choice-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.choice-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #001423;
+}
+
+.choice-desc {
+  font-size: 0.9rem;
+  color: #666;
+  opacity: 0.8;
+}
+
+.onboarding-choices .btn-choice:nth-child(1) {
+  animation: slideDown 0.8s ease-out 0.6s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.onboarding-choices .btn-choice:nth-child(2) {
+  animation: slideDown 0.8s ease-out 0.8s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.onboarding-choices .btn-choice:nth-child(3) {
+  animation: slideDown 0.8s ease-out 1.0s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.onboarding-choices .btn-choice:nth-child(4) {
+  animation: slideDown 0.8s ease-out 1.2s both;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/************************************
+  SAY-ONE-THING SECTION
+************************************/
+main.say {
+  flex: 1 1 auto;                 /* fill between header & footer */
+  min-height: 0;                  /* allow inner items to shrink */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* push text up, button down */
+  align-items: center;
+  text-align: center;
+  
+  padding: 
+    clamp(1rem, 5vh, 3rem)       /* top */
+    1rem                         /* left/right */
+    calc(clamp(1rem, 5vh, 3rem) + env(safe-area-inset-bottom)) /* bottom */  
+}
+
+/* Text Block */
+.say-text {
+  max-width: min(90%,600px);
+}
+.say-text h1 {
+  font-size: clamp(1.5rem,5vw,2.5rem);
+  line-height: 1.2;
+}
+.say-text .subtitle {
+  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  opacity: 0.85;
+  margin-top: clamp(0.5rem,2vh,1rem);
+}
+
+/* Illustration + Listen Bubble */
+.say-illustration {
+  position: relative;
+  max-height: 40vh;               /* never hog more than 40% of height */
+}
+.say-illustration img {
+  width: auto;
+  height: 100%;
+  display: block;
+}
+/* pin the listen-bubble near the elephant's right hand */
+.btn-listen {
+  position: absolute;
+  /* tweak these until it hugs the hand */
+  top: 65%;    /* move down from the top of the container */
+  left: 55%;   /* move in from the left of the container */
+  transform: translate(-10%, -50%);
+  
+  /* preserve your styling */
+  background: #001423;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-size: clamp(0.75rem,2vw,0.875rem);
+  color: #fff;
+  cursor: pointer;
+}
+.btn-listen:hover {
+  opacity: 0.9;
+}
+.btn-listen::after {
+  content: "";
+  position: absolute;
+  bottom: -0.4rem;
+  left: 10%;
+  border-width: 0.4rem;
+  border-style: solid;
+  border-color: #001423 transparent transparent transparent;
+}
+
+/* Input Field */
+.say-input {
+  width: min(90%,400px);
+  padding: clamp(0.5rem,2vh,1rem) clamp(1rem,4vw,2rem);
+  border: 1px solid #FFCD60;
+  border-radius: 2rem;
+  background: transparent;
+  font-size: clamp(1rem,2.5vw,1.1rem);
+  color: #FFCD60;
+}
+.say-input::placeholder {
+  color: #FFCD60;
+  opacity: 1;
+}
+
+/* Analyze Button */
+.say-cta {
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(1rem,2.5vw,1.15rem);
+  font-weight: bold;
+  padding: clamp(0.75rem,2vh,1rem) clamp(1.5rem,4vw,3rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.say-cta:hover {
+  opacity: 0.9;
+}
+
+/* -----------------------------------
+   2. Mobile-only tweaks
+   ----------------------------------- */
+   @media (max-width: 600px) {
+      /* Mobile background image */
+  body {
+    background-image: url('img/phone backgroung LIFE.TUNE.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+    /* Center the content block and add some vertical spacing */
+    main.say {
+      justify-content: center;
+      gap: 1.5rem;
+    }
+  
+    /* Disable absolute positioning on the "I'm here to listen" button,
+       so it sits neatly under the illustration */
+    .btn-listen {
+      position: static;
+      transform: none;
+      margin: -1rem auto 0;
+      display: block;
+    }
+
+    /* Mobile optimizations for hero section */
+    .hero-text h1 {
+      font-size: clamp(2.8rem, 9vw, 4rem);
+      margin-left: 5%;
+      margin-top: 8%;
+      line-height: 1.2;
+      text-align: center;
+      margin-right: 5%;
+      white-space: normal !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      max-width: 90%;
+    }
+
+    /* Mobile optimizations for onboarding */
+    main.onboarding {
+      padding: 1rem;
+      gap: 1.5rem;
+    }
+
+    .welcome-section {
+      margin-top: 1rem;
+    }
+
+    .welcome-title {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .welcome-subtitle {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    .onboarding-choices {
+      max-width: 100%;
+      gap: 0.75rem;
+    }
+
+    .btn-choice {
+      padding: 1rem 1.2rem;
+      gap: 0.75rem;
+    }
+
+    .choice-icon {
+      width: 35px;
+      height: 35px;
+    }
+
+    .choice-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .choice-title {
+      font-size: 1rem;
+    }
+
+    .choice-desc {
+      font-size: 0.85rem;
+    }
+
+    /* Mobile optimizations for AI chat */
+    main.ai-page {
+      padding: 1rem;
+      gap: 1.5rem;
+    }
+
+    .ai-welcome-section {
+      margin-top: 1rem;
+    }
+
+    .ai-welcome-section .welcome-title {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .ai-welcome-section .welcome-subtitle {
+      font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    .welcome-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .ai-tabs {
+      gap: 0.75rem;
+    }
+
+    .ai-tab {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .ai-input-container {
+      margin-bottom: 4rem;
+    }
+
+    .ai-input input {
+      font-size: 1rem;
+    }
+
+    .ai-input button {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .ai-input button .send-icon {
+      width: 1.2em;
+      height: 1.2em;
+    }
+
+    .subtitle {
+      font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+      margin-left: 5%;
+      margin-top: 15px;
+      line-height: 1.4;
+      text-align: center;
+      margin-right: 5%;
+      white-space: normal !important;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      max-width: 90%;
+    }
+
+    .btn-primary {
+	  display: block;
+      font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+      padding: clamp(1rem, 3.5vh, 1.3rem) clamp(2rem, 7vw, 3rem);
+	  text-align: center;
+      margin: 25px auto 0;
+      width: 85%;
+      max-width: 320px;
+      text-align: center;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    /* Mobile nav adjustments */
+    .bottom-nav {
+      padding: clamp(0.3rem, 1.5vh, 0.6rem) 0.8rem;
+      height: 75px;
+      background: transparent;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-item {
+      font-size: clamp(0.7rem, 3.5vw, 0.9rem);
+      padding: 0.4rem 0;
+      gap: 0.3rem;
+      border-radius: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item .nav-icon {
+      width: 1.3em;
+      height: 1.3em;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      background: transparent;
+      color: rgb(68, 68, 68);
+      border: 2px solid #FFCD60;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 8px 0 rgba(255,157,0,0.08);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile header adjustments */
+    .site-header {
+      padding: clamp(0.5rem, 3vh, 1rem) 0.5rem;
+    }
+
+    /* Mobile login adjustments */
+    .login-card {
+      padding: 2rem 1.5rem;
+      margin: 0 1rem;
+      border-radius: 1.5rem;
+    }
+
+    .login-welcome {
+      margin-bottom: 0.5rem;
+    }
+
+    .login-subtitle {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-input {
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+    }
+
+    .login-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .link-item {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .logo {
+      height: clamp(2.5rem, 8vh, 5rem);
+    }
+
+    /* Mobile hero container adjustments */
+    .hero {
+      padding: clamp(0.5rem, 3vh, 1.5rem) 0.5rem 0;
+      margin-bottom: 5rem;
+    }
+
+    .hero-text {
+      max-width: 95%;
+    }
+
+    /* Mobile touch targets */
+    .btn-primary, .nav-item {
+      min-height: 44px; /* iOS recommended touch target size */
+    }
+
+    /* Mobile spacing improvements */
+    .hero-text h1, .subtitle {
+      margin-left: 5%;
+    }
+
+    /* Mobile animation adjustments */
+    .hero-text h1 {
+      animation-delay: 0.1s;
+    }
+
+    .subtitle {
+      animation-delay: 0.3s;
+    }
+
+    .btn-primary {
+      animation-delay: 0.5s;
+    }
+
+    /* Mobile scroll improvements */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Mobile focus improvements */
+    .btn-primary:focus,
+    .nav-item:focus {
+      outline: 2px solid #FFCD60;
+      outline-offset: 2px;
+    }
+
+    /* Mobile loading states */
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    /* Mobile safe area support */
+    .bottom-nav {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    /* Mobile performance optimizations */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Mobile accessibility improvements */
+    .btn-primary,
+    .nav-item {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  }
+
+/************************************
+  BIRTH PAGE SECTION
+************************************/
+main.birth {
+  flex: 1 1 auto;                    /* fill space between header & footer */
+  min-height: 0;                     /* allow children to shrink */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;   /* top + middle + bottom alignment */
+  align-items: center;
+  
+  padding: clamp(0.5rem, 5vh, 1rem) 1rem clamp(5.5rem, 5vh, 2rem);
+  text-align: center;
+}
+
+/* Heading */
+.birth-text {
+  grid-area: text;
+  max-width: min(90%, 500px);
+}
+.birth-text h1 {
+  font-size: clamp(1.75rem, 6vw, 2.75rem);
+  line-height: 1.2;
+  margin-bottom: clamp(0.5rem, 2vh, 1rem);
+}
+.birth-text .subtitle {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  opacity: 0.85;
+}
+
+/* Form */
+.birth-form {
+  /* keep your existing flex‐column setup… */
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vh, 1.5rem);
+  
+  /* but cap its height to fit in the remaining vertical space */
+  width: 100%;
+  max-width: min(90%, 380px);
+  max-height: clamp(500px, 50vh, 380px);
+  
+  padding: clamp(1rem, 3vh, 1.5rem);
+  border: 1px solid #FFCD60;
+  border-radius: 1rem;
+}
+.birth-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #FFCD60;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+.birth-form input {
+  margin-top: 0.5rem;
+  padding: clamp(0.5rem, 2vh, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #FFCD60;
+  background: transparent;
+  border: 1px solid #FFCD60;
+  border-radius: 1rem;
+  outline: none;
+}
+.birth-form input::placeholder {
+  color: #FFCD60;
+  opacity: 1;
+}
+
+/* CTA Button */
+.birth-cta {
+  grid-area: cta;
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: clamp(1rem, 3vh, 2rem); /* small gap above button */
+}
+.birth-cta:hover {
+  opacity: 0.9;
+}
+
+/************************************
+  RESULT SECTION
+************************************/
+main.result {
+  /* allow main to size itself by its content */
+  flex: 0 0 auto;
+  min-height: auto;
+  /* keep your existing padding & gap… */
+  padding: clamp(1.5rem,5vh,1rem) 1rem clamp(3rem,10vh,5rem);
+  gap: clamp(1rem,4vh,2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+
+/* Heading */
+main.result .result-text {
+  max-width: min(90%,600px);
+}
+main.result .result-text h1 {
+  font-size: clamp(1.25rem,5vw,2rem);
+  line-height: 1.2;
+}
+
+/* Card Stack */
+main.result .result-cards {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem,3vh,1.5rem);
+  width: 100%;
+  max-width: min(90%,400px);
+  flex: 0 0 auto;
+  min-height: none;
+  overflow:visible;
+}
+main.result .card {
+  border: 1px solid #FFCD60;
+  border-radius: 1rem;
+  padding: clamp(0.75rem,3vh,1.5rem);
+  text-align: left;
+  display: block;        /* Ensure it's treated as a block-level box */
+  min-height: unset;     /* Remove any default minimum height */
+  height: auto;          /* Let height grow based on content */
+}
+main.result .card h2 {
+  font-size: clamp(0.85rem,3vw,1.1rem);
+  margin-bottom: 0.5rem;
+  color: #FFCD60;
+  line-height: 1.3;
+}
+main.result .card p {
+  font-size: clamp(0.75rem,2.5vw,0.9rem);
+  line-height: 1.4;
+  opacity: 0.85;
+  margin-bottom: 0;      /* Remove default bottom margins */
+}
+
+/* Explore Button */
+main.result .result-cta {
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(0.9rem,2.5vw,1.15rem);
+  padding: clamp(0.5rem,2vh,1rem) clamp(1.5rem,4vw,3rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: opacity .2s;
+  /* push it down away from the cards */
+  margin-top: auto;
+}
+main.result .result-cta:hover {
+  opacity: 0.9;
+}
+
+/************************************
+  PREMIUM PAGE SECTION
+************************************/
+/* ─── Premium Page + Blur-On-Load ─── */
+
+
+/* ─── Premium Page: make it fill & center, with extra bottom‐padding ─── */
+main.premium {
+  /* fill the area between header & footer */
+  flex: 1 1 auto;
+  min-height: auto; /* allow inner grid to shrink */
+
+  display: grid;
+  /* vertical: start-of‐container (so it doesn't push "free" into footer),
+     horizontal: center-of‐container */
+  place-items: start center;
+
+  /* single column, four rows (text, features, cta, free) */
+  grid-template-areas:
+    "text"
+    "features"
+    "cta"
+    "free";
+  grid-template-columns: 1fr;
+  row-gap: clamp(1rem, 4vh, 1rem);
+
+  /* 
+    top padding = clamp(2rem,6vh,4rem)
+    side padding = 1rem
+    bottom padding = clamp(3rem,10vh,5rem)
+    → leaves room for the footer 
+  */
+  padding: clamp(1rem, 6vh, 1rem) 1rem clamp(3rem, 10vh, 5rem);
+  text-align: center;
+
+}
+
+.premium-text {
+  grid-area: text;
+  max-width: min(90%, 600px);
+}
+.premium-text h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+.premium-text .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-top: clamp(0.5rem, 2vh, 1rem);
+}
+
+.premium-features {
+  grid-area: features;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vh, 1rem);
+  max-width: min(90%, 400px);
+}
+.premium-features li {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.4;
+}
+.premium-features .note {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.premium-cta {
+  grid-area: cta;
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: bold;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.premium-cta:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  grid-area: free;
+  background: transparent;
+  border: 1px solid #FFCD60;
+  color: #FFCD60;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  padding: clamp(0.5rem, 2vh, 0.75rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/************************************
+  FREE DAILY INSIGHT SECTION
+************************************/
+main.free {
+  /* 1) Let <main> grow to fit its content so the entire page scrolls */
+  flex: 0 0 auto;       /* instead of flex:1 1 auto */
+  min-height: auto;     /* instead of min-height:0 */
+
+  /* 2) Keep your existing 5-row grid and uniform gap */
+  display: grid;
+  grid-template-areas:
+    "text"
+    "subtitle"
+    "illustration"
+    "quote"
+    "cta";
+  grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 4vh, 2rem);
+
+  /* 3) Preserve original bottom padding + safe-area inset */
+  padding:
+    clamp(2rem, 6vh, 4rem)    /* top padding */
+    1rem                      /* left/right padding */
+    calc(
+      clamp(3rem, 10vh, 5rem) /* original bottom padding */
+      + env(safe-area-inset-bottom) /* add iOS home-indicator inset */
+    );
+
+  /* center everything horizontally */
+  text-align: center;
+  place-items: start center;
+}
+
+/* Heading + subtitle */
+.free-text {
+  grid-area: text;
+  max-width: min(90%, 600px);
+}
+.free-text h1 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  line-height: 1.2;
+}
+.free-text .subtitle {
+  grid-area: subtitle;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  opacity: 0.85;
+  margin-top: clamp(0.5rem, 2vh, 1rem);
+}
+
+/* Illustration */
+.free-illustration {
+  grid-area: illustration;
+}
+.free-illustration img {
+  /* allow the image to shrink if needed instead of forcing overflow */
+  width: min(80vw, 360px);
+  max-height: 30vh;       /* never taller than 30% of the viewport */
+  object-fit: contain;
+}
+
+/* Quote box */
+.free-quote-box {
+  grid-area: quote;
+  max-width: min(90%, 400px);
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  border: 1px solid #FFCD60;
+  border-radius: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* Reflect Again button */
+.free-cta {
+  grid-area: cta;
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  justify-self: center;  /* explicitly center under quote box */
+}
+.free-cta:hover {
+  opacity: 0.9;
+}
+
+/************************************
+  PROFILE PAGE SECTION
+************************************/
+.profile {
+  flex: 1;                                 /* fill between header & footer */
+  display: grid;
+  place-items: center;                     /* center horizontally & vertically */
+  grid-template-areas:
+    "text"
+    "form"
+    "cta";
+  grid-template-columns: 1fr;
+  row-gap: clamp(1rem, 4vh, 2rem);
+  padding: clamp(2rem, 6vh, 4rem) 1rem 0;
+  text-align: center;
+}
+
+.profile-text {
+  grid-area: text;
+  max-width: min(90%, 600px);
+}
+.profile-text h1 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  line-height: 1.3;
+}
+
+/* form fields */
+.profile-form {
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vh, 1.5rem);
+  width: 100%;
+  max-width: min(90%, 400px);
+}
+.profile-form label {
+  text-align: left;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: #FFCD60;
+}
+.profile-form input {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #FFCD60;
+  background: transparent;
+  border: 1px solid #FFCD60;
+  border-radius: 2rem;
+  outline: none;
+}
+.profile-form input::placeholder {
+  color: #FFCD60;
+  opacity: 1;
+}
+
+/* confirm button */
+.profile-cta {
+  grid-area: cta;
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.profile-cta:hover {
+  opacity: 0.9;
+}
+
+/************************************
+  LOGIN MAIN SECTION
+************************************/
+main.login {
+  /* fill space between header & footer */
+  flex: 0 0 auto;
+  min-height: 0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* reduced top padding: only a small gap from header */
+  padding: clamp(0.5rem, 2vh, 1rem) 1rem clamp(1rem, 5vh, 2rem);
+  gap: clamp(1rem, 3vh, 2rem);
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* LOGO */
+.login-logo {
+  /* fluid height between 2rem and 4rem */
+  height: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(0.5rem, 2vh, 1rem);
+}
+
+/* THIN ORANGE DIVIDER */
+.login-divider {
+  width: 100%;
+  max-width: 480px;                /* cap width if you like */
+  height: 1px;
+  background-color: #5A5A5A;
+  margin-bottom: clamp(1rem, 3vh, 2rem);
+}
+
+/* Logo */
+.login-logo {
+  max-width: min(90%, 300px);  /* fluid up to 300px */
+  width: 100%;
+  height: auto;                /* preserve aspect ratio */
+  margin-bottom: clamp(0.5rem, 2vh, 1rem);
+}
+
+
+/* Title */
+h1.login-title {
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  margin-bottom: clamp(1rem, 3vh, 1.5rem);
+  max-width: min(90%, 400px);
+}
+
+/* Form wrapper */
+.login-form {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vh, 1.5rem);
+}
+
+/* Field labels */
+.login-form label {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: #5A5A5A;
+  text-align: left;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #5A5A5A;
+  background: transparent;
+  border: 1px solid #5A5A5A;
+  border-radius: 2rem;
+  box-sizing: border-box;
+}
+.login-form input::placeholder {
+  color: #5A5A5A;
+  opacity: 1;
+}
+
+/* "Forgot password?" link */
+.forgot {
+	display: flex;
+    justify-content: space-between;	
+
+  width: min(100%, 400px);
+  text-align: left;
+  font-size: clamp(0.8rem, 2.5vw, 0.8rem);
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: clamp(0.5rem, 3vh, 0.5rem);	
+}
+.forgot-link {
+
+  color: #fff;
+  text-decoration: none;
+
+}
+
+/* Login button */
+.btn-login {
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(135deg, #FFCD60 0%, #FFD580 100%);
+  border: none;
+  color: #fff;
+  font-size: clamp(1.3rem,3vh,1.6rem);
+  font-weight: bold;
+  padding: clamp(0.75rem,2.5vh,1.25rem) clamp(2rem,5vw,3.5rem);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 157, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 157, 0, 0.4);
+  background: linear-gradient(135deg, #FFD580 0%, #FFCD60 100%);
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 20px rgba(255, 157, 0, 0.3);
+}
+
+/* Login Welcome Section */
+.login-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.login-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #666;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Login Card */
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.input-icon {
+  width: 1.2em;
+  height: 1.2em;
+  fill: #5A5A5A;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #5A5A5A;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(90, 90, 90, 0.1);
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+/* Form Actions */
+.form-actions {
+  margin-top: 2rem;
+}
+
+.btn-icon {
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor;
+  margin-right: 0.5rem;
+}
+
+/* Login Divider */
+.login-divider {
+  position: relative;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.login-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e1e5e9;
+}
+
+.login-divider span {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Google Sign In */
+.google-signin {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* Login Links */
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.link-item:hover {
+  color: #5A5A5A;
+  background: rgba(90, 90, 90, 0.1);
+  transform: translateY(-1px);
+}
+
+.link-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+/* Alert */
+.alert {
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.alert-danger {
+  background: rgba(255, 59, 48, 0.1);
+  color: #ff3b30;
+  border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+/************************************
+  HOME PAGE SECTION
+************************************/
+/* ─── 2) Main: fill between header & footer ─── */
+main.home {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1.5rem,5vh,4rem) 1rem clamp(3rem,5vh,2rem);
+  box-sizing: border-box;
+
+  /* ←– allow vertical scroll if content is too tall */
+  overflow-y: auto;
+}
+
+/* ─── 3) Pull out each section ─── */
+.daily-summary {
+  flex: 0 0 auto;                      /* natural height */
+  width: 100%;
+  max-width: 600px;
+}
+.daily-summary h2 {
+  font-size: clamp(1.25rem,4vw,2rem);
+  margin-bottom: clamp(1rem,3vh,2rem);
+}
+
+.ai-assistant {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto clamp(2rem,5vh,4rem);
+  display: flex;
+  justify-content: center;
+}
+/* replace the old .btn-primary rule with this: */
+.ai-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #032449;      /* dark pill background */
+  color: #fff;                   /* white text */
+  border: none;
+  border-radius: 2rem;           /* fully rounded */
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.ai-btn:hover {
+  background-color: #0a1a3a;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* size & color of the inline SVG */
+.ai-icon {
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
+/* ─── 4) Illustration shrinks if needed ─── */
+.illustration {
+  flex: 1 1 auto;                      /* fill the leftover space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: show;
+}
+.illustration img {
+  /* never let it push past footer/header/others */
+  max-height: clamp(20vh, 30vh, 40vh);
+  width: auto;
+}
+
+/* ─── 5) Bottom nav: fixed height ─── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* keep your existing rules */
+  display: flex;
+  justify-content: space-around;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  padding: clamp(0.3rem,1.5vh,0.7rem) 1rem;
+  z-index: 1000;  /* float above content */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: rgb(68, 68, 68);
+  font-size: clamp(0.75rem,2.5vw,1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-item .nav-icon {
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
+.nav-item.active {
+  background: transparent;
+  color: rgb(68, 68, 68);
+}
+
+.nav-item:hover {
+  background: transparent;
+  transform: translateY(-2px);
+}
+
+/* ─── CARD STYLES ─── */
+.card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  min-height: 14rem;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* background gradients per type */
+.card.wealth {
+  background: linear-gradient(to bottom right, #FFD700, #FFCB05);
+}
+.card.love {
+  background: linear-gradient(to bottom right, #FF637D, #FF4965);
+}
+.card.health {
+  background: linear-gradient(to bottom right, #3CD070, #1FB7B7);
+}
+
+/* the white "inner panel" */
+.card-content {
+  background: #fff;
+  color: #001423;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  line-height: 1.4;
+}
+
+/* header text in the colored area */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  text-transform: uppercase;
+}
+
+/* header icon sizing */
+.card-header .header-icon {
+  width: 1.5em;
+  height: 1.5em;
+  fill: rgba(255,255,255,0.8);
+}
+
+/* 2) style each paragraph as flex, so the icon and text align */
+.card-content p {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  line-height: 1.4;
+}
+
+/* content‐icons sizing & color */
+.card-content .content-icon {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;      /* inherits the grey/gold text color you already have */
+  margin-top: 0.125em;     /* tweak vertical alignment */
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 0 clamp(0.5rem, 3vw, 1rem);
+  box-sizing: content-box;     /* keep the gutters external to max-width */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 10, 35, 0.75);
+  border: none;
+  padding: 0;                   /* we'll size via width/height */
+  width: clamp(2.5rem, 5vw, 4rem);
+  height: clamp(2.5rem, 5vw, 4rem);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+.carousel-btn:hover {
+  opacity: 0.85;
+}
+
+/* position them */
+.carousel-btn.prev { left: 0.5rem; }
+.carousel-btn.next { right: 0.5rem; }
+
+/* style the SVG inside */
+.icon-chevron {
+  width: 60%;                   /* icon is 60% of button size */
+  height: auto;
+  fill: #FFCD60;                /* your brand orange */
+}
+
+/* Force exactly one card in view */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  gap: clamp(1rem,2vw,2rem);
+
+  /* ←– allow x-axis scroll again */
+  overflow-x: auto;
+
+  /* ←– snap to each slide cleanly */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel-item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  scroll-snap-align: start; /* snap to its left edge */
+  padding: 0 clamp(0.5rem,2vw,1rem); /* optional side gap */
+}
+
+/* Hide the native scrollbar */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── DOT INDICATORS ─── */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.carousel-dots .dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #ffffff99;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dots .dot.active,
+.carousel-dots .dot:hover {
+  background: #FFCD60;
+}
+
+/* hide all detail‐views by default */
+.detail-view {
+  display: none;
+}
+/* when un‐hidden */
+.detail-view[hidden] { display: none; }
+.detail-view:not([hidden]) {
+  display: block;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;               /* white text & icons */
+  font-size: clamp(1rem,2.5vw,1.25rem);
+  margin-bottom: 1rem;
+}
+
+.detail-header .header-icon {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;        /* picks up the white color above */
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;                           /* space between icon & text */
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  cursor: pointer;
+  padding: 0;                            /* reset any default padding */
+}
+
+.back-icon {
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;                    /* matches the text color */
+  transition: fill 0.2s;
+}
+
+.btn-back:hover .back-icon {
+  fill: #FFCD60;                         /* your brand orange on hover */
+}
+
+/* ─── DETAIL BLOCK CARDS ─── */
+.detail-block {
+  background-color: #1F2A37CC;
+  border-radius: 0.5rem;                        /* soften the corners */
+  padding: clamp(0.75rem, 2vh, 1rem);           /* give the text some breathing room */
+  margin: clamp(1rem, 3vh, 2rem) 0;             /* vertical gap between each block */
+}
+
+/************************************
+  FORTUNE PAGE SECTION
+************************************/
+/* ─── Container & Heading ───────────────────────────────── */
+.fortune-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* pad the page so content never hugs the edges */
+  padding: clamp(1rem, 5vw, 2rem);
+}
+
+/* Make each list a fluid column capped at a comfortable max-width */
+.fortune-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 clamp(2rem, 5vh, 3rem);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ─── The "cards" ───────────────────────────────────────────── */
+.fortune-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: clamp(1rem, 3vh, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fortune-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Date styling: big & responsive */
+.fortune-item .date {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  color: #fff;
+}
+
+/* Subtitle ("Today", "Yesterday", etc.) */
+.fortune-item .subtitle {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: rgba(255,255,255,0.7);
+}
+
+.fortune-item {
+  position: relative;            /* <-- allow absolutely-positioned arrow */
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: clamp(rem, 3vh, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* the chevron on the right */
+.fortune-item::after {
+  content: '›';                  /* or use '\276F' for a slightly different arrow */
+  position: absolute;
+  right: clamp(1rem, 5vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  pointer-events: none;          /* so clicks go through to the <li> */
+}
+
+.fortune-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/************************************
+  FORTUNE DETAILS PAGE SECTION
+************************************/
+/* ─── DETAIL PAGE LAYOUT & SCROLLING ─── */
+main.detail-page {
+  /* fill all the space between header and bottom nav */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;         /* allow vertical scrolling */
+  padding: clamp(1rem, 5vw, 2rem);
+  padding-bottom: clamp(4rem, 10vh, 6rem); /* room for nav */
+
+  align-items: center;
+}
+
+/* make the list of cards stack with space between them */
+.detail-page .card-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem,3vh,2rem);  /* vertical space between each card */
+
+  /* cap its width & center it */
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+/* ensure each card doesn't shrink and shows its full content */
+.detail-page .card-list .card {
+  flex: 0 0 auto;
+}
+
+/* container for back-arrow + title */
+.detail-top {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  /* match your card-column centering: */
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto clamp(1rem, 3vh, 2rem);
+}
+
+/* kill the h2's default top margin so it sits flush */
+.detail-top h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 2rem); /* adjust as you like */
+}
+
+/* your existing back-button styles are fine, but
+   make sure there isn't extra bottom margin: */
+.btn-back {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/************************************
+  AI CHAT PAGE SECTION
+************************************/
+main.ai-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ /* padding: clamp(1rem,4vh,2rem) 1rem;*/
+  box-sizing: border-box;
+  min-height: 0; /* allow inner to shrink for scrolling */
+  margin-bottom: 8rem;
+  gap: 2rem;
+}
+
+/* back arrow + title row */
+.ai-top {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem,2vw,1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(0rem,3vh,0.5rem);
+  padding: 0 clamp(0.5rem,0vw,2rem);
+  box-sizing: border-box;
+}
+.ai-top h2 {
+  margin: 0;
+  font-size: clamp(1.25rem,4vw,2rem);
+  color: #001423;
+}
+
+.chat-stage-title {
+  margin: 0;
+  font-size: clamp(1.1rem,3.5vw,1.6rem);
+  color: #001423;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+/* Hide the title initially, show only in chat mode */
+.chat-stage-title {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+body.chat-mode .chat-stage-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Chat/History tabs */
+.ai-tabs {
+  display: flex;
+  gap: clamp(1rem,4vw,2rem);
+  margin-bottom: clamp(2rem,5vh,4rem);
+}
+.ai-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: clamp(0.75rem,2vh,1rem) clamp(1.5rem,4vw,2rem);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  color: #001423;
+  font-size: clamp(1rem,2.5vw,1.15rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.ai-tab:hover {
+  background: rgba(255,255,255,1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+.ai-tab.active {
+  background: #FFCD60;
+  color: #001423;
+  border-color: #FFCD60;
+  box-shadow: 0 4px 16px rgba(255, 157, 0, 0.2);
+}
+
+/* illustration */
+.ai-illustration {
+  flex: 0 0 auto;
+  margin-bottom: clamp(2rem,5vh,4rem);
+  display: flex;
+  justify-content: center;
+}
+.ai-illustration[hidden] {
+  display: none !important;
+}
+
+.ai-illustration img {
+  max-height: clamp(20vh,30vh,40vh);
+  width: auto;
+  display: block;
+}
+
+/* welcome message */
+.ai-welcome {
+  text-align: center;
+  max-width: min(90%,600px);
+  margin-bottom: clamp(4rem,10vh,6rem); /* room for input */
+}
+.ai-welcome h1 {
+  font-size: clamp(1.5rem,5vw,2.5rem);
+  margin-bottom: clamp(0.5rem,2vh,1rem);
+  color: #001423;
+}
+.ai-welcome .subtitle {
+  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  opacity: 0.7;
+  color: #666;
+}
+
+/* AI Welcome Section */
+.ai-welcome-section {
+  margin-top: 2rem;
+  max-width: 600px;
+  text-align: center;
+}
+
+.welcome-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #FFCD60, #ffb347);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 16px rgba(255, 157, 0, 0.2);
+}
+
+.welcome-icon svg {
+  fill: #001423;
+}
+
+.ai-welcome-section .welcome-title {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #001423;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.ai-welcome-section .welcome-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #666;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+/* fixed input at bottom */
+.ai-input-container {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 4.5rem;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(7px);
+  padding: clamp(0.5rem,2vh,1rem);
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+.ai-input {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.ai-input input {
+  flex: 1;
+  padding: clamp(0.75rem,2vh,1rem) clamp(1rem,4vw,2rem);
+  border: 2px solid #e9ecef;
+  border-radius: 2rem;
+  background: #fff;
+  color: #001423;
+  font-size: clamp(1rem,2.5vw,1.1rem);
+  outline: none;
+  transition: all 0.3s ease;
+}
+.ai-input input:focus {
+  border-color: #FFCD60;
+  box-shadow: 0 0 0 3px rgba(255, 157, 0, 0.1);
+}
+.ai-input input::placeholder {
+  color: #999;
+}
+.ai-input button {
+  background: linear-gradient(135deg, #FFCD60, #ffb347);
+  border: none;
+  border-radius: 50%;
+  width: clamp(3.5rem,5vw,4rem);
+  height: clamp(3.5rem,5vw,4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 157, 0, 0.2);
+}
+.ai-input button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 157, 0, 0.3);
+}
+.ai-input button:active {
+  transform: translateY(0);
+}
+.ai-input button .send-icon {
+  width: 1.5em;
+  height: 1.5em;
+  fill: #001423;
+}
+/* ─── Tabs as icon+text pills ───────────────────────────────── */
+.ai-tabs {
+  display: flex;
+  gap: clamp(0.5rem, 3vw, 1rem);
+  margin-bottom: clamp(2rem, 5vh, 4rem);
+}
+
+.ai-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ai-tab .tab-icon {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
+.ai-tab:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.ai-tab.active {
+  background: #FFCD60;    /* your "Chat" brand-blue */
+  color: #fff;
+}
+
+/* If you want the History tab to swap to a darker pill when active: */
+.ai-tab#tab-history.active {
+  background: #FFCD60;
+  color: #fff;
+}
+
+/* History tab specific styling - inactive state */
+.ai-tab#tab-history {
+  color: #5A5A5A;
+}
+
+.ai-tab#tab-history .tab-icon {
+  fill: #5A5A5A;
+}
+
+/* ─── Chat log & messages ───────────────────────────────── */
+.chat-log {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem,5vw,2rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* wrap avatar + sender + text */
+.message-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* the "You" / "AI Assistant" label */
+.message-body .sender {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: bold;
+  color: #001423;
+}
+
+/* each bubble */
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 20px;
+}
+
+.message .avatar {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.message.you .avatar {
+  background: rgba(255,255,255,0.5);
+}
+
+.message.ai .avatar {
+  background: #FFCD60;
+}
+
+.message .text {
+  color: #001423;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.4;
+}
+
+body.chat-mode .ai-tabs {
+  display: none !important;
+}
+
+/************************************
+  REGISTER PAGE SECTION
+************************************/
+.register {
+  flex: 1;                                 /* fill between header & footer */
+  display: grid;
+  place-items: center;                     /* center horizontally & vertically */
+  grid-template-areas:
+    "text"
+    "form"
+    "cta";
+  grid-template-columns: 1fr;
+  row-gap: clamp(1rem, 4vh, 2rem);
+  padding: clamp(2rem, 6vh, 1rem) 1rem 0;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.register-text {
+  grid-area: text;
+  max-width: min(90%, 600px);
+}
+.register-text h1 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  line-height: 1.3;
+}
+
+/* form fields */
+.register-form {
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vh, 1.5rem);
+  width: 100%;
+  max-width: min(90%, 400px);
+}
+.register-form label {
+  text-align: left;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: #FFCD60;
+}
+.register-form input {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #FFCD60;
+  background: transparent;
+  border: 1px solid #FFCD60;
+  border-radius: 2rem;
+  outline: none;
+}
+.register-form input::placeholder {
+  color: #FFCD60;
+  opacity: 1;
+}
+
+/* confirm button */
+.register-cta {
+  grid-area: cta;
+  background-color: #FFCD60;
+  border: none;
+  color: #0A1632;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.register-cta:hover {
+  opacity: 0.9;
+}  
+
+/************************************
+  AI CHAT HISTORY PAGE SECTION
+************************************/
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem,2vw,1rem);
+
+  width: 100%;
+  max-width: 600px;
+  padding: 0 clamp(1rem,5vw,2rem);
+  margin: 0 auto clamp(1rem,3vh,2rem);
+  box-sizing: border-box;
+}
+.detail-header h2 {
+  margin: 0;
+  font-size: clamp(1.25rem,4vw,2rem);
+  color: #fff;
+}
+
+   /* History section wrapper */
+   .history-section {
+     margin-bottom: clamp(2rem, 5vh, 4rem);
+   }
+   
+   /* History list (vertical stack) */
+   .history-list {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+     gap: clamp(0.5rem, 2vh, 1rem);
+   }
+   
+   /* Each history item fills the full container width */
+   .history-item {
+     display: block;                  /* ensure block-level */
+     width: 100%;                     /* stretch to fill .history-section */
+     box-sizing: border-box;          /* padding won't overflow */
+     background: rgba(255, 255, 255, 0.1);
+     border-radius: 0.75rem;
+     padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+     color: #fff;
+     cursor: pointer;
+     transition: background 0.2s;
+   }
+   
+   .history-item:hover {
+     background: rgba(255, 255, 255, 0.2);
+   }
+
+/* ─── History Page Input Visibility ───────────── */
+ /* Hide the input bar on the history *list* view */
+ main.history-page + .ai-input-container {
+  display: none !important;
+}
+
+/* Show the input bar again when viewing a chat log (detail-mode) */
+body.detail-mode main.history-page + .ai-input-container {
+  display: block !important;
+}
+
+/* ─── Detail-Mode Header & Tabs ───────────────── */
+ /* Only hide the first ai-top (page header) in detail-mode */
+body.detail-mode main.history-page > .ai-top:first-child {
+  display: none !important;
+}
+/* Still hide the tabs in detail-mode */
+body.detail-mode .ai-tabs {
+  display: none !important;
+}
+
+
+
+/************************************
+PROFILE PAGE SECTION
+************************************/
+/* container for the list of rows */
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vh, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: clamp(1rem, 5vw, 2rem) 0;
+  box-sizing: border-box;
+}
+
+/* each row */
+.profile-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.1);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-item:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.profile-item .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profile-item .info .name,
+.profile-item .info .email {
+  margin: 0;
+  text-align: left;
+}
+
+/* left side of each row: avatar/icon + text */
+.profile-item .left {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vh, 1rem);
+}
+
+/* avatar placeholder */
+.profile-item .avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background: #ccc;
+  object-fit: cover;
+}
+
+/* special "Log out" row color */
+.profile-item.logout {
+  color: #FF4C4C;
+}
+
+/************************************
+  PROFILE EDIT PAGE SECTION
+************************************/
+/* Main container for the profile-edit page */
+main.profile-edit-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+  min-height: 0; /* allow inner to shrink for scrolling */
+}
+
+/* Header row: back button, title, save button */
+.profile-edit-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+.profile-edit-header h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: #fff;
+}
+.btn-back {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.back-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+
+/* Avatar section */
+.avatar-container {
+  position: relative;
+  margin-bottom: clamp(2rem, 5vh, 4rem);
+}
+.avatar-img {
+  width: clamp(8rem, 30vw, 12rem);
+  height: clamp(8rem, 30vw, 12rem);
+  border-radius: 1rem;
+  object-fit: cover;
+  background: #ccc; /* placeholder background */
+}
+.btn-avatar-edit {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.25rem;
+  background: #FFCD60;
+  border: none;
+  border-radius: 50%;
+  width: clamp(2.5rem, 5vw, 4rem);
+  height: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.avatar-edit-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #fff;
+}
+
+/* Form of inputs */
+.profile-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vh, 3rem);
+  width: 100%;
+  max-width: 600px;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+}
+
+/* Each labeled input group */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+}
+.input-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: clamp(0.75rem, 2vh, 1rem);
+  fill: #FFCD60;
+}
+.input-group input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  outline: none;
+}
+.input-group ::placeholder {
+  color: #fff;
+}
+
+/* Clear‐date "×" button */
+.clear-btn {
+  position: absolute;
+  right: clamp(1rem, 4vw, 2rem);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.clear-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: rgba(255,255,255,0.8);
+}
+
+/* Container to center the button */
+.save-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Oval-shaped Save button */
+.oval-save-btn {
+  padding: 0.75rem 2rem;
+  background-color: #FFCD60;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 999px; /* Makes it oval */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.oval-save-btn:hover {
+  background-color: #915e0d;
+}
+
+/************************************
+  SETTINGS PAGE SECTION
+************************************/
+
+/* Main container, centers content & scrollable */
+main.settings-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+  min-height: 0; /* allow inner to shrink for scrolling */
+}
+
+/* Header row: back arrow + title */
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+.settings-header h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: #fff;
+}
+
+/* List of settings rows */
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vh, 1rem);
+}
+
+/* Individual row */
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+.settings-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Right‐arrow in each row */
+.settings-item .item-arrow {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
+/************************************
+  ACCOUNT SECURITY PAGE SECTION
+************************************/
+
+/* container and centering */
+main.settings-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+/* header bar */
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+.settings-header h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: #fff;
+}
+
+/* list of items */
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vh, 1rem);
+}
+
+/* each row */
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+.settings-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* arrow icon */
+.settings-item .item-arrow {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
+/************************************
+  CHANGE PASSWORD PAGE SECTION
+************************************/
+/* container for the entire change-password page */
+main.change-password-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+  min-height: 0;  /* allow inner flex to shrink for scrolling */
+  align-items: center;
+}
+
+/* header bar: back icon, title, save icon */
+.change-password-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+.change-password-header h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: #000000;
+}
+
+/* form wrapper */
+.change-password-form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vh, 1.5rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+}
+
+/* ─── Each row: label on left + input on right with only a bottom border ─── */
+.change-password-form .input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Left-side label */
+.change-password-form .input-group .input-label {
+  flex: 0 0 auto;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: #fff;
+}
+
+/* Right-side input */
+.change-password-form .input-group input {
+  flex: 1 1 auto;
+  margin-left: clamp(1rem, 4vw, 2rem);
+  padding: 0; 
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  outline: none;
+}
+
+/* informational text under inputs */
+.password-info {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  line-height: 1.4;
+  color: rgba(255,255,255,0.7);
+  margin-top: clamp(1rem, 2vh, 1.5rem);
+}
+.password-info .forgot-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #FFCD60;
+  text-decoration: none;
+}
+.password-info .forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* back button styles */
+.btn-back {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.back-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+/* Centered container for the save button */
+.save-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Oval-shaped Save button styling */
+.oval-save-btn {
+  padding: 0.75rem 2.5rem;
+  background-color: #FFCD60;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.oval-save-btn:hover {
+  background-color: #915e0d;
+}
+
+/************************************
+  GENERAL PAGE SECTION
+************************************/
+
+/* Container for the General page */
+main.general-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+  min-height: 0;  /* allow inner flex to shrink for scrolling */
+  align-items: center;
+}
+
+/* Header row: back arrow + title centered */
+.general-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+.general-page .page-header h2 {
+  flex: 1;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: #fff;
+  margin: 0;
+}
+
+/* Reuse your back button styles */
+.btn-back {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.back-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #000000;
+}
+
+/* The list of settings rows */
+.settings-list {
+  list-style: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 2vh, 0.5rem);
+  box-sizing: border-box;
+}
+
+/* Each row: label on left, chevron on right */
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.settings-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* The text label */
+.settings-item .label {
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+/* The right-arrow icon */
+.arrow-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: rgba(255,255,255,0.6);
+  transition: fill 0.2s;
+}
+.settings-item:hover .arrow-icon {
+  fill: #fff;
+}
+
+/************************************
+  LANGUAGE PAGE SECTION
+************************************/
+
+/* Page wrapper */
+main.language-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem,5vw,2rem);
+  box-sizing: border-box;
+  min-height: 0;
+  align-items: center;
+}
+
+/* Reuse the same header style */
+.language-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+.language-page .page-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.25rem,4vw,2rem);
+  color: #fff;
+}
+
+/* List container */
+.language-page .settings-list {
+  list-style: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem,2vh,0.5rem);
+}
+
+/* Each row (reuse from settings) */
+.language-page .settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(0.75rem,2vh,1rem) clamp(1rem,4vw,2rem);
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.language-page .settings-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Highlight the selected row */
+.language-page .settings-item.selected {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Label text */
+.language-page .settings-item .label {
+  color: #fff;
+  font-size: clamp(1rem,2.5vw,1.15rem);
+}
+
+/* Check‐mark icon */
+.language-page .settings-item .check-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #FFCD60;              /* bright check color */
+  display: none;              /* hidden by default */
+}
+.language-page .settings-item.selected .check-icon {
+  display: block;
+}
+
+/************************************
+  THEME PAGE SECTION
+************************************/
+
+/* Reuse the page-header style */
+main.theme-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem,5vw,2rem);
+  box-sizing: border-box;
+  min-height: 0;
+  align-items: center;
+}
+main.theme-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+main.theme-page .page-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.25rem,4vw,2rem);
+  color: #fff;
+}
+
+/* The same settings-list & settings-item from language.html */
+main.theme-page .settings-list {
+  list-style: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem,2vh,0.5rem);
+}
+main.theme-page .settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(0.75rem,2vh,1rem) clamp(1rem,4vw,2rem);
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+main.theme-page .settings-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+main.theme-page .settings-item.selected {
+  background: rgba(255,255,255,0.15);
+}
+main.theme-page .settings-item .label {
+  color: #fff;
+  font-size: clamp(1rem,2.5vw,1.15rem);
+}
+main.theme-page .settings-item .check-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #FFCD60;
+  display: none;
+}
+main.theme-page .settings-item.selected .check-icon {
+  display: block;
+}
+
+/************************************
+  ABOUT US PAGE SECTION
+************************************/
+
+/* Main container for about page */
+main.aboutus-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem,5vw,2rem);
+  box-sizing: border-box;
+  min-height: 0;
+  align-items: center;
+}
+
+main.aboutus-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+main.aboutus-page .page-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.25rem,4vw,2rem);
+  color: #fff;
+}
+
+/* List wrapper to center & cap width */
+main.aboutus-page .about-list {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 2rem);
+}
+
+/* Each card */
+main.aboutus-page .about-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  color: #fff;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+/* Section headings with icon */
+main.aboutus-page .about-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  margin-bottom: clamp(0.75rem, 2vh, 1rem);
+}
+
+/* Emoji/icon sizing */
+main.aboutus-page .about-card .icon {
+  font-size: 1.5em;
+}
+
+/* Paragraphs inside card */
+main.aboutus-page .about-card p {
+  margin-bottom: clamp(0.75rem, 2vh, 1rem);
+  opacity: 0.9;
+}
+
+/* Lists inside cards */
+main.aboutus-page .about-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+main.aboutus-page .about-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: clamp(0.5rem, 1.5vh, 0.75rem);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+}
+
+/************************************
+  PRIVACY & SECURITY PAGE SECTION
+************************************/
+
+/* Container for entire page content */
+main.privacy-page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem,5vw,2rem);
+  box-sizing: border-box;
+  min-height: 0;
+  align-items: center;
+}
+
+main.privacy-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+main.privacy-page .page-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.25rem,4vw,2rem);
+  color: #fff;
+}
+
+/* Intro paragraph */
+main.privacy-page .privacy-intro {
+  max-width: 600px;
+  width: 100%;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.5;
+  margin-bottom: clamp(1.5rem, 3vh, 2rem);
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* List wrapper to center & cap width */
+main.privacy-page .privacy-list {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 2.5rem);
+}
+
+/* Each card */
+main.privacy-page .privacy-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  box-sizing: border-box;
+  color: #fff;
+}
+
+/* Card headings with icon */
+main.privacy-page .privacy-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  margin-bottom: clamp(0.75rem, 2vh, 1rem);
+}
+
+/* Emoji/icon sizing */
+main.privacy-page .privacy-card .icon {
+  font-size: 1.5em;
+}
+
+/* Paragraphs inside card */
+main.privacy-page .privacy-card p {
+  margin-bottom: clamp(0.75rem, 2vh, 1rem);
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Lists inside card */
+main.privacy-page .privacy-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 clamp(0.75rem, 2vh, 1rem);
+}
+main.privacy-page .privacy-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: clamp(0.5rem, 1.5vh, 0.75rem);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  opacity: 0.95;
+}
+
+/* ============================================
+   STEP 1: FORGOT PASSWORD – ENTER EMAIL
+   ============================================ */
+
+   main.forgotpassword-page {
+    /* full-page flex container, centered */
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(1rem,5vw,2rem);
+    box-sizing: border-box;
+    min-height: 0;
+  }
+  
+  /* Header row */
+  main.forgotpassword-page .page-header {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem,2vw,1rem);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: clamp(1.5rem,4vh,2rem);
+    padding: 0 clamp(1rem,5vw,2rem);
+  }
+  main.forgotpassword-page .page-header h2 {
+    flex: 1;
+    margin: 0;
+    font-size: clamp(1.25rem,4vw,2rem);
+    color: #fff;
+  }
+  
+  /* Intro paragraph */
+  main.forgotpassword-page .fp-intro {
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(0.9rem,2.5vw,1.1rem);
+    line-height: 1.5;
+    margin-bottom: clamp(1.5rem,4vh,2rem);
+  }
+  
+  /* Input group */
+  main.forgotpassword-page .input-group {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: clamp(1.5rem,4vh,2rem);
+  }
+  main.forgotpassword-page .input-label {
+    color: rgba(255,255,255,0.8);
+    font-size: clamp(0.9rem,2.5vw,1.1rem);
+  }
+  main.forgotpassword-page input[type="email"] {
+    width: 100%;
+    padding: clamp(0.75rem,2vh,1rem);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 0.75rem;
+    background: transparent;
+    color: #fff;
+    font-size: clamp(1rem,2.5vw,1.1rem);
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  /* Primary action button */
+  main.forgotpassword-page .btn-primary {
+    width: 100%;
+    max-width: 600px;
+    background-color: #FFCD60;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    padding: clamp(0.75rem,2vh,1rem);
+    font-size: clamp(1rem,2.5vw,1.15rem);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  main.forgotpassword-page .btn-primary:hover {
+    background-color: #915e0d;
+  }
+  
+  /* Reuse back button icon style */
+  main.forgotpassword-page .btn-back {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  main.forgotpassword-page .back-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: #fff;
+  }
+
+/* ============================================
+   STEP 2: CHECK YOUR EMAIL – ENTER CODE
+   ============================================ */
+
+main.checkemail-page {
+  /* full-page flex container, centered */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem,5vw,2rem);
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+/* Header row */
+main.checkemail-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem,2vw,1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem,4vh,2rem);
+  padding: 0 clamp(1rem,5vw,2rem);
+}
+main.checkemail-page .page-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.25rem,4vw,2rem);
+  color: #fff;
+}
+
+/* Intro paragraph */
+main.checkemail-page .intro {
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  line-height: 1.4;
+  margin-bottom: clamp(2rem,4vh,3rem);
+}
+main.checkemail-page .email-highlight {
+  font-weight: bold;
+  color: #FFCD60;
+}
+
+/* Code input boxes */
+main.checkemail-page .code-inputs {
+  display: flex;
+  gap: clamp(0.5rem,2vw,1rem);
+  margin-bottom: clamp(2rem,4vh,3rem);
+}
+main.checkemail-page .code-box {
+  width: clamp(12rem,8vw,4rem);
+  height: clamp(3rem,8vw,4rem);
+  font-size: clamp(1.5rem,4vw,2rem);
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #fff;
+  outline: none;
+}
+
+/* Primary action button */
+main.checkemail-page .btn-primary {
+  width: 100%;
+  max-width: 600px;
+  background-color: #FFCD60;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem,2vh,1rem);
+  font-size: clamp(1rem,2.5vw,1.15rem);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+main.checkemail-page .btn-primary:hover {
+  background-color: #915e0d;
+}
+
+/* Resend link */
+main.checkemail-page .resend {
+  margin-top: clamp(1rem,3vh,2rem);
+  color: rgba(255,255,255,0.8);
+  font-size: clamp(0.9rem,2.5vw,1.1rem);
+}
+main.checkemail-page .btn-link {
+  background: none;
+  border: none;
+  color: #FFCD60;
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin-left: 0.25rem;
+}
+
+/* Back icon reuse */
+main.checkemail-page .btn-back {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+main.checkemail-page .back-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+
+/* ============================================
+   STEP 3: PASSWORD RESET – CONFIRMATION
+   ============================================ */
+
+   main.reset-page {
+    /* full-page flex container, centered */
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(1rem,5vw,2rem);
+    box-sizing: border-box;
+    min-height: 0;
+  }
+  
+  /* Header row */
+  main.reset-page .page-header {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem,2vw,1rem);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: clamp(2rem,4vh,3rem);
+    padding: 0 clamp(1rem,5vw,2rem);
+  }
+  main.reset-page .page-header h2 {
+    flex: 1;
+    margin: 0;
+    font-size: clamp(1.25rem,4vw,2rem);
+    color: #fff;
+  }
+  
+  /* Confirmation paragraph */
+  main.reset-page .confirmation {
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(0.9rem,2.5vw,1.1rem);
+    line-height: 1.5;
+    margin-bottom: clamp(2rem,4vh,3rem);
+  }
+  
+  /* Primary action button */
+  main.reset-page .btn-primary {
+    width: 100%;
+    max-width: 600px;
+    background-color: #FFCD60;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    padding: clamp(0.75rem,2vh,1rem);
+    font-size: clamp(1rem,2.5vw,1.15rem);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  main.reset-page .btn-primary:hover {
+    background-color: #915e0d;
+  }
+  
+  /* Back icon */
+  main.reset-page .btn-back {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  main.reset-page .back-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: #fff;
+  }
+  
+/* Login page exclusive background */
+.login-body {
+  background-image: url('img/computer background LIFE.TUNE.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+
+/* Result page animations */
+.result-text {
+  animation: slideInFromLeft 0.8s ease-out 0.2s both;
+  opacity: 0;
+}
+
+.result-cards .card {
+  animation: slideInFromLeft 0.8s ease-out both;
+  opacity: 0;
+}
+
+.result-cards .card:nth-child(1) { animation-delay: 0.4s; }
+.result-cards .card:nth-child(2) { animation-delay: 0.6s; }
+.result-cards .card:nth-child(3) { animation-delay: 0.8s; }
+.result-cards .card:nth-child(4) { animation-delay: 1.0s; }
+.result-cards .card:nth-child(5) { animation-delay: 1.2s; }
+.result-cards .card:nth-child(6) { animation-delay: 1.4s; }
+.result-cards .card:nth-child(7) { animation-delay: 1.6s; }
+
+#explore-btn {
+  background: linear-gradient(135deg, #FFCD60, #FFD580);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 205, 96, 0.3);
+}
+
+#explore-btn:hover {
+  background: linear-gradient(135deg, #FFD580, #FFCD60);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 205, 96, 0.4);
+}
+
+/* ─── AI Process Modal Styles ─── */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 1.5rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 600px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.modal-page {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.modal-page.active {
+  display: flex;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.modal-subtitle {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for modal */
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: rgba(175, 175, 175, 0.1);
+  border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+/* Firefox scrollbar */
+.modal-body {
+  scrollbar-width: thin;
+  scrollbar-color: #afafaf rgba(175, 175, 175, 0.1);
+}
+
+.modal-intro {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.modal-section-title {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.modal-process-section {
+  margin-bottom: 2rem;
+}
+
+.modal-process-steps {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.modal-process-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(255, 205, 96, 0.1);
+  border-radius: 0.8rem;
+  border-left: 3px solid rgb(255, 205, 96);
+}
+
+.modal-step-number {
+  background: rgb(255, 205, 96);
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.modal-step-content {
+  flex: 1;
+  text-align: left;
+}
+
+.modal-step-title {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.modal-step-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.modal-benefits-section {
+  margin-bottom: 2rem;
+}
+
+.modal-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-benefit-item {
+  background: rgba(255, 205, 96, 0.1);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid rgba(255, 205, 96, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.modal-benefit-item:hover {
+  transform: translateY(-2px);
+}
+
+.modal-benefit-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-benefit-item h4 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.modal-benefit-item p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.modal-solution-section {
+  margin-bottom: 2rem;
+}
+
+.modal-solution-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-feature-card {
+  background: rgba(255, 205, 96, 0.1);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid rgba(255, 205, 96, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.modal-feature-card:hover {
+  transform: translateY(-2px);
+}
+
+.modal-feature-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-feature-title {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.modal-feature-description {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.modal-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.modal-nav-btn {
+  background: rgb(255, 205, 96);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(255, 205, 96, 0.3);
+}
+
+.modal-nav-btn:hover {
+  background: rgb(235, 185, 76);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 205, 96, 0.4);
+}
+
+.modal-nav-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  color: #666;
+  box-shadow: none;
+  transform: none;
+}
+
+.modal-page-indicator {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.modal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background-color 0.2s ease;
+}
+
+.modal-dot.active {
+  background-color: rgb(255, 205, 96);
+}
+
+/* Mobile responsive styles for modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95vw;
+    max-height: 95vh;
+    margin: 12rem 1rem;
+  }
+
+  .modal-page {
+    padding: 1.5rem;
+    max-height: 75vh;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .modal-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-solution-features {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-process-step {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-step-number {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-step-content {
+    text-align: center;
+  }
+
+  .modal-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .modal-nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+  

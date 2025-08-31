@@ -1,0 +1,7 @@
+{"error":"","level":"error","message":"Database initialization error:","service":"ai-coach","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1118:18)\n    at afterConnectMultiple (node:net:1685:7)","timestamp":"2025-08-20T03:46:55.047Z"}
+{"error":"Duplicate entry '0' for key 'PRIMARY'","level":"error","message":"Failed to log interaction","service":"ai-coach","timestamp":"2025-08-20T06:57:57.551Z"}
+{"error":"Duplicate entry '0' for key 'PRIMARY'","level":"error","message":"Failed to log interaction","service":"ai-coach","timestamp":"2025-08-20T06:57:57.560Z"}
+{"error":"Duplicate entry '0' for key 'PRIMARY'","level":"error","message":"Failed to log interaction","service":"ai-coach","timestamp":"2025-08-20T06:57:57.561Z"}
+{"error":"db.get is not a function","level":"error","message":"Error calculating reset time","service":"ai-coach","timestamp":"2025-08-20T07:21:38.599Z"}
+{"error":"getLatestLimitExceeded is not defined","level":"error","message":"Error calculating reset time","service":"ai-coach","timestamp":"2025-08-20T07:31:45.110Z"}
+{"error":"","level":"error","message":"Database initialization error:","service":"ai-coach","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1118:18)\n    at afterConnectMultiple (node:net:1685:7)","timestamp":"2025-08-21T03:18:21.348Z"}
