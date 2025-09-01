@@ -476,13 +476,13 @@
                 try {
                     screenReaderFeedback.textContent = "Saving your preferences...";
                     
-                    // Save preferences to server
-                    await fetch('http://localhost:3000/save-preferences', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ userId: "user123", preferences: userPreferences }),
-                        credentials: 'include'
-                    });
+                    // Save preferences to database
+                    // await fetch('http://localhost:3000/save-preferences', {
+                    //     method: 'POST',
+                    //     headers: { 'Content-Type': 'application/json' },
+                    //     body: JSON.stringify({ userId: "user123", preferences: userPreferences }),
+                    //     credentials: 'include'
+                    // });
            
                     // Also store in localStorage for immediate use
                     localStorage.setItem('userPreferences', JSON.stringify(userPreferences));

@@ -531,3 +531,18 @@
 {"level":"debug","message":"AI Thoughts summary:","service":"ai-coach","thought":"**Refining Initial Approach**\n\nI've crafted a greeting in Mandarin, using a direct and open-ended question to kickstart the coaching session. The tone is respectful and professional, suitable for a middle-aged homemaker. I've considered several options, choosing one that's both welcoming and goal-oriented. My response explicitly acknowledges the user's preference for directness, making the interaction productive from the start. I'm ready to await the user's response, prepared to tailor my guidance to their specific needs.\n\n\n","timestamp":"2025-08-31T16:19:36.975Z"}
 {"level":"debug","message":"Model Text:","service":"ai-coach","text":"您好，很高兴能在这里与您交流。\n\n为了让我们的谈话更有成效，我们可以直接开始。\n\n请问，今天有什么特定的事情或想法是您希望我们可以一起探讨的吗？","timestamp":"2025-08-31T16:19:36.976Z"}
 {"level":"info","message":"Response sent","method":"POST","responseTime":"12252ms","service":"ai-coach","sessionId":"ef5757f7-6bc6-4517-aebe-cff351b8bc65","status":200,"timestamp":"2025-08-31T16:19:36.980Z","url":"/chat"}
+{"level":"info","message":"Server is running on port 3000","service":"ai-coach","timestamp":"2025-09-01T06:12:15.200Z"}
+{"level":"info","message":"Database initialized successfully","service":"ai-coach","timestamp":"2025-09-01T06:12:15.293Z"}
+{"level":"info","message":"Shutting down server gracefully","service":"ai-coach","timestamp":"2025-09-01T06:49:36.492Z"}
+{"level":"info","message":"Server running on port 3000","service":"ai-coach","timestamp":"2025-09-01T06:52:22.593Z"}
+{"level":"info","message":"Database initialized successfully","service":"ai-coach","timestamp":"2025-09-01T06:52:22.628Z"}
+{"level":"info","message":"Shutting down server gracefully","service":"ai-coach","timestamp":"2025-09-01T07:04:09.159Z"}
+{"level":"info","message":"Server running on port 3000","service":"ai-coach","timestamp":"2025-09-01T07:04:11.637Z"}
+{"level":"info","message":"Database initialized successfully","service":"ai-coach","timestamp":"2025-09-01T07:04:11.672Z"}
+{"level":"info","message":"Shutting down server gracefully","service":"ai-coach","timestamp":"2025-09-01T07:05:09.564Z"}
+{"level":"info","message":"Server running on port 3000","service":"ai-coach","timestamp":"2025-09-01T07:05:11.542Z"}
+{"level":"info","message":"Database initialized successfully","service":"ai-coach","timestamp":"2025-09-01T07:05:11.570Z"}
+{"level":"info","message":"Shutting down server gracefully","service":"ai-coach","timestamp":"2025-09-01T07:15:05.982Z"}
+{"level":"info","message":"Server running on port 3000","service":"ai-coach","timestamp":"2025-09-01T07:15:08.672Z"}
+{"level":"info","message":"Database initialized successfully","service":"ai-coach","timestamp":"2025-09-01T07:15:08.722Z"}
+{"level":"info","message":"Shutting down server gracefully","service":"ai-coach","timestamp":"2025-09-01T07:17:52.087Z"}

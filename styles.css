@@ -27,7 +27,8 @@
     transform: translateX(0);
   }
 }
-html, body {
+html,
+body {
   height: 100%;
   overflow: auto;
 }
@@ -35,37 +36,39 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background: #fff2eb;
   color: #fff;
   line-height: 1.5;
-  padding-bottom: env(safe-area-inset-bottom); /* Add bottom padding to account for the device's safe-area inset */
+  padding-bottom: env(
+    safe-area-inset-bottom
+  ); /* Add bottom padding to account for the device's safe-area inset */
 }
 
 .result-cards {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.75rem,3vh,1.5rem);
+  gap: clamp(0.75rem, 3vh, 1.5rem);
   width: 100%;
-  max-width: min(90%,400px);
+  max-width: min(90%, 400px);
   flex: 0 0 auto;
   min-height: none;
-  overflow:visible;
+  overflow: visible;
 }
 .card {
-  border: 1px solid #FFCD60;
+  border: 1px solid #ffcd60;
   border-radius: 1rem;
-  padding: clamp(0.75rem,3vh,1.5rem);
+  padding: clamp(0.75rem, 3vh, 1.5rem);
   text-align: left;
 }
 .card h2 {
-  font-size: clamp(0.85rem,3vw,1.1rem);
+  font-size: clamp(0.85rem, 3vw, 1.1rem);
   margin-bottom: 0.5rem;
-  color: #FFCD60;
+  color: #ffcd60;
   line-height: 1.3;
 }
 .card p {
-  font-size: clamp(0.75rem,2.5vw,0.9rem);
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
   line-height: 1.4;
   opacity: 0.85;
 }
@@ -74,24 +77,24 @@ body {
   INDEX SECTION
 ************************************/
 /* ─── Header & Footer ─── */
-.site-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: clamp(0.75rem,5vh,1.5rem) 1rem;
-    text-align: center;
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(0.75rem, 5vh, 1.5rem) 1rem;
+  text-align: center;
 }
 .site-footer {
   flex: 0 0 auto;
   text-align: center;
-  padding: clamp(0.75rem,5vh,1.5rem) 1rem;
+  padding: clamp(0.75rem, 5vh, 1.5rem) 1rem;
 }
 .subscribe-btn {
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
-  font-size: clamp(0.9rem,2.5vw,1.1rem);
-  padding: clamp(0.5rem,1vh,0.75rem) clamp(1rem,3vw,1.5rem);
+  color: #0a1632;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  padding: clamp(0.5rem, 1vh, 0.75rem) clamp(1rem, 3vw, 1.5rem);
   border-radius: 0.5rem;
   cursor: pointer;
   transition: opacity 0.2s;
@@ -106,37 +109,38 @@ body {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: clamp(1rem,4vw,2rem);
+  gap: clamp(1rem, 4vw, 2rem);
 }
 .site-footer a {
   color: #fff;
   text-decoration: none;
-  font-size: clamp(0.75rem,2vh,0.875rem);
+  font-size: clamp(0.75rem, 2vh, 0.875rem);
   opacity: 0.75;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
 }
-.site-footer a:hover { opacity: 1; }
+.site-footer a:hover {
+  opacity: 1;
+}
 
 /* ─── Hero (fills the "flex gap") ─── */
 .hero {
-  flex: 0 1 auto;                      /* take all space between header & footer */
+  flex: 0 1 auto; /* take all space between header & footer */
   display: flex;
   flex-direction: column;
-  align-items: center;                 /* center horizontally */
-  justify-content: center;             /* center vertically */
-  padding: clamp(1rem,5vh,3rem) 1rem 0; /* top padding only */
+  align-items: center; /* center horizontally */
+  justify-content: center; /* center vertically */
+  padding: clamp(1rem, 5vh, 3rem) 1rem 0; /* top padding only */
   text-align: center;
-  min-height: 0;                       /* allow inner flex to shrink if needed */
+  min-height: 0; /* allow inner flex to shrink if needed */
   margin-bottom: 6rem;
 }
 
 /* Hero Text */
 .hero-text {
-  max-width: min(90%,600px);
-
+  max-width: min(90%, 600px);
 }
 .hero-text h1 {
-  font-size: clamp(4rem,7vh,6rem);
+  font-size: clamp(4rem, 7vh, 6rem);
   line-height: 1.2;
   white-space: nowrap;
   margin-left: 15%;
@@ -146,9 +150,9 @@ body {
   transform: translateY(-30px);
 }
 .subtitle {
-  font-size: clamp(2.2rem,4vh,2.5rem);
-  opacity: .85;
-  margin-top: clamp(.5rem,2vh,1rem);
+  font-size: clamp(2.2rem, 4vh, 2.5rem);
+  opacity: 0.85;
+  margin-top: clamp(0.5rem, 2vh, 1rem);
   white-space: nowrap;
   margin-left: 15%;
   margin-top: 17px;
@@ -159,23 +163,23 @@ body {
 
 /* Illustration */
 .hero-illustration {
-  margin-bottom: clamp(0.5rem,4vh,1.5rem);
+  margin-bottom: clamp(0.5rem, 4vh, 1.5rem);
 }
 .hero-illustration img {
-  width: clamp(150px,30vh,400px);  /* fluid up to 400px */
+  width: clamp(150px, 30vh, 400px); /* fluid up to 400px */
   height: auto;
   display: block;
 }
 
 /* Primary Button */
 .btn-primary {
-  display: block;	
-  background: linear-gradient(135deg, #FFCD60 0%, #FFD580 100%);
+  display: block;
+  background: linear-gradient(135deg, #ffcd60 0%, #ffd580 100%);
   border: none;
   color: #fff;
-  font-size: clamp(1.3rem,3vh,1.6rem);
+  font-size: clamp(1.3rem, 3vh, 1.6rem);
   font-weight: bold;
-  padding: clamp(0.75rem,2.5vh,1.25rem) clamp(2rem,5vw,3.5rem);
+  padding: clamp(0.75rem, 2.5vh, 1.25rem) clamp(2rem, 5vw, 3.5rem);
   border-radius: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -191,20 +195,25 @@ body {
 }
 
 .btn-primary::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 35px rgba(255, 205, 96, 0.4);
-  background: linear-gradient(135deg, #FFD580 0%, #FFCD60 100%);
+  background: linear-gradient(135deg, #ffd580 0%, #ffcd60 100%);
 }
 
 .btn-primary:hover::before {
@@ -221,13 +230,13 @@ body {
 ************************************/
 /* ─── Onboarding fills the gap ─── */
 main.onboarding {
-  flex: 1 1 auto;               /* fill between header & footer */
+  flex: 1 1 auto; /* fill between header & footer */
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* start from top */
   align-items: center;
-  padding: clamp(1rem,4vh,2rem) 1rem;
-  min-height: 0;                /* allow children to shrink */
+  padding: clamp(1rem, 4vh, 2rem) 1rem;
+  min-height: 0; /* allow children to shrink */
   text-align: center;
   margin-bottom: 45rem;
   gap: 2rem;
@@ -235,7 +244,7 @@ main.onboarding {
 
 /* Onboarding page background */
 body.onboarding-page {
-  background-image: url('img/computer background LIFE.TUNE.png');
+  background-image: url("img/computer background LIFE.TUNE.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -244,7 +253,7 @@ body.onboarding-page {
 
 /* AI Chat page background */
 body.aichat-page {
-  background-image: url('img/computer background LIFE.TUNE.png');
+  background-image: url("img/computer background LIFE.TUNE.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -317,18 +326,23 @@ body.aichat-page {
 }
 
 .btn-choice::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 205, 96, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 205, 96, 0.1),
+    transparent
+  );
   transition: left 0.5s;
 }
 
 .btn-choice:hover {
-  border-color: #FFCD60;
+  border-color: #ffcd60;
   box-shadow: 0 4px 16px rgba(255, 205, 96, 0.15);
   transform: translateY(-2px);
 }
@@ -347,7 +361,7 @@ body.aichat-page {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #FFCD60, #FFD580);
+  background: linear-gradient(135deg, #ffcd60, #ffd580);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -388,7 +402,7 @@ body.aichat-page {
   transform: translateY(-30px);
 }
 .onboarding-choices .btn-choice:nth-child(3) {
-  animation: slideDown 0.8s ease-out 1.0s both;
+  animation: slideDown 0.8s ease-out 1s both;
   opacity: 0;
   transform: translateY(-30px);
 }
@@ -402,39 +416,37 @@ body.aichat-page {
   SAY-ONE-THING SECTION
 ************************************/
 main.say {
-  flex: 1 1 auto;                 /* fill between header & footer */
-  min-height: 0;                  /* allow inner items to shrink */
-  
+  flex: 1 1 auto; /* fill between header & footer */
+  min-height: 0; /* allow inner items to shrink */
+
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* push text up, button down */
   align-items: center;
   text-align: center;
-  
-  padding: 
-    clamp(1rem, 5vh, 3rem)       /* top */
-    1rem                         /* left/right */
-    calc(clamp(1rem, 5vh, 3rem) + env(safe-area-inset-bottom)) /* bottom */  
+
+  padding: clamp(1rem, 5vh, 3rem) /* top */ 1rem /* left/right */
+    calc(clamp(1rem, 5vh, 3rem) + env(safe-area-inset-bottom)); /* bottom */
 }
 
 /* Text Block */
 .say-text {
-  max-width: min(90%,600px);
+  max-width: min(90%, 600px);
 }
 .say-text h1 {
-  font-size: clamp(1.5rem,5vw,2.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   line-height: 1.2;
 }
 .say-text .subtitle {
-  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   opacity: 0.85;
-  margin-top: clamp(0.5rem,2vh,1rem);
+  margin-top: clamp(0.5rem, 2vh, 1rem);
 }
 
 /* Illustration + Listen Bubble */
 .say-illustration {
   position: relative;
-  max-height: 40vh;               /* never hog more than 40% of height */
+  max-height: 40vh; /* never hog more than 40% of height */
 }
 .say-illustration img {
   width: auto;
@@ -445,16 +457,16 @@ main.say {
 .btn-listen {
   position: absolute;
   /* tweak these until it hugs the hand */
-  top: 65%;    /* move down from the top of the container */
-  left: 55%;   /* move in from the left of the container */
+  top: 65%; /* move down from the top of the container */
+  left: 55%; /* move in from the left of the container */
   transform: translate(-10%, -50%);
-  
+
   /* preserve your styling */
   background: #001423;
   border: 1px solid #fff;
   border-radius: 0.5rem;
   padding: 0.25rem 0.75rem;
-  font-size: clamp(0.75rem,2vw,0.875rem);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
   color: #fff;
   cursor: pointer;
 }
@@ -473,27 +485,27 @@ main.say {
 
 /* Input Field */
 .say-input {
-  width: min(90%,400px);
-  padding: clamp(0.5rem,2vh,1rem) clamp(1rem,4vw,2rem);
-  border: 1px solid #FFCD60;
+  width: min(90%, 400px);
+  padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  border: 1px solid #ffcd60;
   border-radius: 2rem;
   background: transparent;
-  font-size: clamp(1rem,2.5vw,1.1rem);
-  color: #FFCD60;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #ffcd60;
 }
 .say-input::placeholder {
-  color: #FFCD60;
+  color: #ffcd60;
   opacity: 1;
 }
 
 /* Analyze Button */
 .say-cta {
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
-  font-size: clamp(1rem,2.5vw,1.15rem);
+  color: #0a1632;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
   font-weight: bold;
-  padding: clamp(0.75rem,2vh,1rem) clamp(1.5rem,4vw,3rem);
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
   border-radius: 0.5rem;
   cursor: pointer;
 }
@@ -504,325 +516,328 @@ main.say {
 /* -----------------------------------
    2. Mobile-only tweaks
    ----------------------------------- */
-   @media (max-width: 600px) {
-      /* Mobile background image */
+@media (max-width: 600px) {
+  /* Mobile background image */
   body {
-    background-image: url('img/phone backgroung LIFE.TUNE.png') !important;
+    background-image: url("img/phone backgroung LIFE.TUNE.png") !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
 
-    /* Center the content block and add some vertical spacing */
-    main.say {
-      justify-content: center;
-      gap: 1.5rem;
-    }
-  
-    /* Disable absolute positioning on the "I'm here to listen" button,
-       so it sits neatly under the illustration */
-    .btn-listen {
-      position: static;
-      transform: none;
-      margin: -1rem auto 0;
-      display: block;
-    }
-
-    /* Mobile optimizations for hero section */
-    .hero-text h1 {
-      font-size: clamp(2.8rem, 9vw, 4rem);
-      margin-left: 5%;
-      margin-top: 8%;
-      line-height: 1.2;
-      text-align: center;
-      margin-right: 5%;
-      white-space: normal !important;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      hyphens: auto;
-      max-width: 90%;
-    }
-
-    /* Mobile optimizations for onboarding */
-    main.onboarding {
-      padding: 1rem;
-      gap: 1.5rem;
-    }
-
-    .welcome-section {
-      margin-top: 1rem;
-    }
-
-    .welcome-title {
-      font-size: clamp(1.5rem, 6vw, 2rem);
-    }
-
-    .welcome-subtitle {
-      font-size: clamp(0.9rem, 3vw, 1rem);
-    }
-
-    .onboarding-choices {
-      max-width: 100%;
-      gap: 0.75rem;
-    }
-
-    .btn-choice {
-      padding: 1rem 1.2rem;
-      gap: 0.75rem;
-    }
-
-    .choice-icon {
-      width: 35px;
-      height: 35px;
-    }
-
-    .choice-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .choice-title {
-      font-size: 1rem;
-    }
-
-    .choice-desc {
-      font-size: 0.85rem;
-    }
-
-    /* Mobile optimizations for AI chat */
-    main.ai-page {
-      padding: 1rem;
-      gap: 1.5rem;
-    }
-
-    .ai-welcome-section {
-      margin-top: 1rem;
-    }
-
-    .ai-welcome-section .welcome-title {
-      font-size: clamp(1.5rem, 6vw, 2rem);
-    }
-
-    .ai-welcome-section .welcome-subtitle {
-      font-size: clamp(0.9rem, 3vw, 1rem);
-    }
-
-    .welcome-icon {
-      width: 60px;
-      height: 60px;
-    }
-
-    .ai-tabs {
-      gap: 0.75rem;
-    }
-
-    .ai-tab {
-      padding: 0.75rem 1rem;
-      font-size: 0.9rem;
-    }
-
-    .ai-input-container {
-      margin-bottom: 4rem;
-    }
-
-    .ai-input input {
-      font-size: 1rem;
-    }
-
-    .ai-input button {
-      width: 3rem;
-      height: 3rem;
-    }
-
-    .ai-input button .send-icon {
-      width: 1.2em;
-      height: 1.2em;
-    }
-
-    .subtitle {
-      font-size: clamp(1.6rem, 5.5vw, 2.2rem);
-      margin-left: 5%;
-      margin-top: 15px;
-      line-height: 1.4;
-      text-align: center;
-      margin-right: 5%;
-      white-space: normal !important;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      hyphens: auto;
-      max-width: 90%;
-    }
-
-    .btn-primary {
-	  display: block;
-      font-size: clamp(1.2rem, 4.5vw, 1.5rem);
-      padding: clamp(1rem, 3.5vh, 1.3rem) clamp(2rem, 7vw, 3rem);
-	  text-align: center;
-      margin: 25px auto 0;
-      width: 85%;
-      max-width: 320px;
-      text-align: center;
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    /* Mobile nav adjustments */
-    .bottom-nav {
-      padding: clamp(0.3rem, 1.5vh, 0.6rem) 0.8rem;
-      height: 75px;
-      background: transparent;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .nav-item {
-      font-size: clamp(0.7rem, 3.5vw, 0.9rem);
-      padding: 0.4rem 0;
-      gap: 0.3rem;
-      border-radius: 0.8rem;
-      transition: all 0.3s ease;
-    }
-
-    .nav-item .nav-icon {
-      width: 1.3em;
-      height: 1.3em;
-    }
-
-    .nav-item:hover, .nav-item.active {
-      background: transparent;
-      color: rgb(68, 68, 68);
-      border: 2px solid #FFCD60;
-      border-radius: 1.5rem;
-      box-shadow: 0 2px 8px 0 rgba(255,157,0,0.08);
-      transform: translateY(-1px);
-    }
-
-    /* Mobile header adjustments */
-    .site-header {
-      padding: clamp(0.5rem, 3vh, 1rem) 0.5rem;
-    }
-
-    /* Mobile login adjustments */
-    .login-card {
-      padding: 2rem 1.5rem;
-      margin: 0 1rem;
-      border-radius: 1.5rem;
-    }
-
-    .login-welcome {
-      margin-bottom: 0.5rem;
-    }
-
-    .login-subtitle {
-      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-input {
-      padding: 0.9rem 1rem;
-      font-size: 1rem;
-    }
-
-    .login-links {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .link-item {
-      font-size: 0.85rem;
-      padding: 0.4rem 0.8rem;
-    }
-
-    .logo {
-      height: clamp(2.5rem, 8vh, 5rem);
-    }
-
-    /* Mobile hero container adjustments */
-    .hero {
-      padding: clamp(0.5rem, 3vh, 1.5rem) 0.5rem 0;
-      margin-bottom: 5rem;
-    }
-
-    .hero-text {
-      max-width: 95%;
-    }
-
-    /* Mobile touch targets */
-    .btn-primary, .nav-item {
-      min-height: 44px; /* iOS recommended touch target size */
-    }
-
-    /* Mobile spacing improvements */
-    .hero-text h1, .subtitle {
-      margin-left: 5%;
-    }
-
-    /* Mobile animation adjustments */
-    .hero-text h1 {
-      animation-delay: 0.1s;
-    }
-
-    .subtitle {
-      animation-delay: 0.3s;
-    }
-
-    .btn-primary {
-      animation-delay: 0.5s;
-    }
-
-    /* Mobile scroll improvements */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Mobile focus improvements */
-    .btn-primary:focus,
-    .nav-item:focus {
-      outline: 2px solid #FFCD60;
-      outline-offset: 2px;
-    }
-
-    /* Mobile loading states */
-    .btn-primary:active {
-      transform: scale(0.98);
-    }
-
-    /* Mobile safe area support */
-    .bottom-nav {
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    /* Mobile performance optimizations */
-    * {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Mobile accessibility improvements */
-    .btn-primary,
-    .nav-item {
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      user-select: none;
-    }
+  /* Center the content block and add some vertical spacing */
+  main.say {
+    justify-content: center;
+    gap: 1.5rem;
   }
+
+  /* Disable absolute positioning on the "I'm here to listen" button,
+       so it sits neatly under the illustration */
+  .btn-listen {
+    position: static;
+    transform: none;
+    margin: -1rem auto 0;
+    display: block;
+  }
+
+  /* Mobile optimizations for hero section */
+  .hero-text h1 {
+    font-size: clamp(2.8rem, 9vw, 4rem);
+    margin-left: 5%;
+    margin-top: 8%;
+    line-height: 1.2;
+    text-align: center;
+    margin-right: 5%;
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 90%;
+  }
+
+  /* Mobile optimizations for onboarding */
+  main.onboarding {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .welcome-section {
+    margin-top: 1rem;
+  }
+
+  .welcome-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .welcome-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+
+  .onboarding-choices {
+    max-width: 100%;
+    gap: 0.75rem;
+  }
+
+  .btn-choice {
+    padding: 1rem 1.2rem;
+    gap: 0.75rem;
+  }
+
+  .choice-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .choice-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .choice-title {
+    font-size: 1rem;
+  }
+
+  .choice-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Mobile optimizations for AI chat */
+  main.ai-page {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .ai-welcome-section {
+    margin-top: 1rem;
+  }
+
+  .ai-welcome-section .welcome-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .ai-welcome-section .welcome-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+
+  .welcome-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ai-tabs {
+    gap: 0.75rem;
+  }
+
+  .ai-tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .ai-input-container {
+    margin-bottom: 4rem;
+  }
+
+  .ai-input input {
+    font-size: 1rem;
+  }
+
+  .ai-input button {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .ai-input button .send-icon {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .subtitle {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+    margin-left: 5%;
+    margin-top: 15px;
+    line-height: 1.4;
+    text-align: center;
+    margin-right: 5%;
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 90%;
+  }
+
+  .btn-primary {
+    display: block;
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+    padding: clamp(1rem, 3.5vh, 1.3rem) clamp(2rem, 7vw, 3rem);
+    text-align: center;
+    margin: 25px auto 0;
+    width: 85%;
+    max-width: 320px;
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* Mobile nav adjustments */
+  .bottom-nav {
+    padding: clamp(0.3rem, 1.5vh, 0.6rem) 0.8rem;
+    height: 75px;
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-item {
+    font-size: clamp(0.7rem, 3.5vw, 0.9rem);
+    padding: 0.4rem 0;
+    gap: 0.3rem;
+    border-radius: 0.8rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item .nav-icon {
+    width: 1.3em;
+    height: 1.3em;
+  }
+
+  .nav-item:hover,
+  .nav-item.active {
+    background: transparent;
+    color: rgb(68, 68, 68);
+    border: 2px solid #ffcd60;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 8px 0 rgba(255, 157, 0, 0.08);
+    transform: translateY(-1px);
+  }
+
+  /* Mobile header adjustments */
+  .site-header {
+    padding: clamp(0.5rem, 3vh, 1rem) 0.5rem;
+  }
+
+  /* Mobile login adjustments */
+  .login-card {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .login-welcome {
+    margin-bottom: 0.5rem;
+  }
+
+  .login-subtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-input {
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+  }
+
+  .login-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .link-item {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .logo {
+    height: clamp(2.5rem, 8vh, 5rem);
+  }
+
+  /* Mobile hero container adjustments */
+  .hero {
+    padding: clamp(0.5rem, 3vh, 1.5rem) 0.5rem 0;
+    margin-bottom: 5rem;
+  }
+
+  .hero-text {
+    max-width: 95%;
+  }
+
+  /* Mobile touch targets */
+  .btn-primary,
+  .nav-item {
+    min-height: 44px; /* iOS recommended touch target size */
+  }
+
+  /* Mobile spacing improvements */
+  .hero-text h1,
+  .subtitle {
+    margin-left: 5%;
+  }
+
+  /* Mobile animation adjustments */
+  .hero-text h1 {
+    animation-delay: 0.1s;
+  }
+
+  .subtitle {
+    animation-delay: 0.3s;
+  }
+
+  .btn-primary {
+    animation-delay: 0.5s;
+  }
+
+  /* Mobile scroll improvements */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Mobile focus improvements */
+  .btn-primary:focus,
+  .nav-item:focus {
+    outline: 2px solid #ffcd60;
+    outline-offset: 2px;
+  }
+
+  /* Mobile loading states */
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  /* Mobile safe area support */
+  .bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Mobile performance optimizations */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Mobile accessibility improvements */
+  .btn-primary,
+  .nav-item {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
 
 /************************************
   BIRTH PAGE SECTION
 ************************************/
 main.birth {
-  flex: 1 1 auto;                    /* fill space between header & footer */
-  min-height: 0;                     /* allow children to shrink */
-  
+  flex: 1 1 auto; /* fill space between header & footer */
+  min-height: 0; /* allow children to shrink */
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;   /* top + middle + bottom alignment */
+  justify-content: space-between; /* top + middle + bottom alignment */
   align-items: center;
-  
+
   padding: clamp(0.5rem, 5vh, 1rem) 1rem clamp(5.5rem, 5vh, 2rem);
   text-align: center;
 }
@@ -848,44 +863,44 @@ main.birth {
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 3vh, 1.5rem);
-  
+
   /* but cap its height to fit in the remaining vertical space */
   width: 100%;
   max-width: min(90%, 380px);
   max-height: clamp(500px, 50vh, 380px);
-  
+
   padding: clamp(1rem, 3vh, 1.5rem);
-  border: 1px solid #FFCD60;
+  border: 1px solid #ffcd60;
   border-radius: 1rem;
 }
 .birth-form label {
   display: flex;
   flex-direction: column;
   text-align: left;
-  color: #FFCD60;
+  color: #ffcd60;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 .birth-form input {
   margin-top: 0.5rem;
   padding: clamp(0.5rem, 2vh, 0.75rem) clamp(1rem, 3vw, 1.5rem);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  color: #FFCD60;
+  color: #ffcd60;
   background: transparent;
-  border: 1px solid #FFCD60;
+  border: 1px solid #ffcd60;
   border-radius: 1rem;
   outline: none;
 }
 .birth-form input::placeholder {
-  color: #FFCD60;
+  color: #ffcd60;
   opacity: 1;
 }
 
 /* CTA Button */
 .birth-cta {
   grid-area: cta;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
+  color: #0a1632;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: bold;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
@@ -906,8 +921,8 @@ main.result {
   flex: 0 0 auto;
   min-height: auto;
   /* keep your existing padding & gap… */
-  padding: clamp(1.5rem,5vh,1rem) 1rem clamp(3rem,10vh,5rem);
-  gap: clamp(1rem,4vh,2rem);
+  padding: clamp(1.5rem, 5vh, 1rem) 1rem clamp(3rem, 10vh, 5rem);
+  gap: clamp(1rem, 4vh, 2rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -915,13 +930,12 @@ main.result {
   margin-bottom: 2rem;
 }
 
-
 /* Heading */
 main.result .result-text {
-  max-width: min(90%,600px);
+  max-width: min(90%, 600px);
 }
 main.result .result-text h1 {
-  font-size: clamp(1.25rem,5vw,2rem);
+  font-size: clamp(1.25rem, 5vw, 2rem);
   line-height: 1.2;
 }
 
@@ -929,45 +943,45 @@ main.result .result-text h1 {
 main.result .result-cards {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.75rem,3vh,1.5rem);
+  gap: clamp(0.75rem, 3vh, 1.5rem);
   width: 100%;
-  max-width: min(90%,400px);
+  max-width: min(90%, 400px);
   flex: 0 0 auto;
   min-height: none;
-  overflow:visible;
+  overflow: visible;
 }
 main.result .card {
-  border: 1px solid #FFCD60;
+  border: 1px solid #ffcd60;
   border-radius: 1rem;
-  padding: clamp(0.75rem,3vh,1.5rem);
+  padding: clamp(0.75rem, 3vh, 1.5rem);
   text-align: left;
-  display: block;        /* Ensure it's treated as a block-level box */
-  min-height: unset;     /* Remove any default minimum height */
-  height: auto;          /* Let height grow based on content */
+  display: block; /* Ensure it's treated as a block-level box */
+  min-height: unset; /* Remove any default minimum height */
+  height: auto; /* Let height grow based on content */
 }
 main.result .card h2 {
-  font-size: clamp(0.85rem,3vw,1.1rem);
+  font-size: clamp(0.85rem, 3vw, 1.1rem);
   margin-bottom: 0.5rem;
-  color: #FFCD60;
+  color: #ffcd60;
   line-height: 1.3;
 }
 main.result .card p {
-  font-size: clamp(0.75rem,2.5vw,0.9rem);
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
   line-height: 1.4;
   opacity: 0.85;
-  margin-bottom: 0;      /* Remove default bottom margins */
+  margin-bottom: 0; /* Remove default bottom margins */
 }
 
 /* Explore Button */
 main.result .result-cta {
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
-  font-size: clamp(0.9rem,2.5vw,1.15rem);
-  padding: clamp(0.5rem,2vh,1rem) clamp(1.5rem,4vw,3rem);
+  color: #0a1632;
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  padding: clamp(0.5rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
   /* push it down away from the cards */
   margin-top: auto;
 }
@@ -979,7 +993,6 @@ main.result .result-cta:hover {
   PREMIUM PAGE SECTION
 ************************************/
 /* ─── Premium Page + Blur-On-Load ─── */
-
 
 /* ─── Premium Page: make it fill & center, with extra bottom‐padding ─── */
 main.premium {
@@ -1009,7 +1022,6 @@ main.premium {
   */
   padding: clamp(1rem, 6vh, 1rem) 1rem clamp(3rem, 10vh, 5rem);
   text-align: center;
-
 }
 
 .premium-text {
@@ -1044,9 +1056,9 @@ main.premium {
 
 .premium-cta {
   grid-area: cta;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
+  color: #0a1632;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: bold;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
@@ -1061,8 +1073,8 @@ main.premium {
 .btn-secondary {
   grid-area: free;
   background: transparent;
-  border: 1px solid #FFCD60;
-  color: #FFCD60;
+  border: 1px solid #ffcd60;
+  color: #ffcd60;
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   padding: clamp(0.5rem, 2vh, 0.75rem) clamp(1.5rem, 4vw, 3rem);
   border-radius: clamp(0.5rem, 2vw, 1rem);
@@ -1078,8 +1090,8 @@ main.premium {
 ************************************/
 main.free {
   /* 1) Let <main> grow to fit its content so the entire page scrolls */
-  flex: 0 0 auto;       /* instead of flex:1 1 auto */
-  min-height: auto;     /* instead of min-height:0 */
+  flex: 0 0 auto; /* instead of flex:1 1 auto */
+  min-height: auto; /* instead of min-height:0 */
 
   /* 2) Keep your existing 5-row grid and uniform gap */
   display: grid;
@@ -1094,12 +1106,11 @@ main.free {
   gap: clamp(1rem, 4vh, 2rem);
 
   /* 3) Preserve original bottom padding + safe-area inset */
-  padding:
-    clamp(2rem, 6vh, 4rem)    /* top padding */
-    1rem                      /* left/right padding */
+  padding: clamp(2rem, 6vh, 4rem) /* top padding */ 1rem
+    /* left/right padding */
     calc(
-      clamp(3rem, 10vh, 5rem) /* original bottom padding */
-      + env(safe-area-inset-bottom) /* add iOS home-indicator inset */
+      clamp(3rem, 10vh, 5rem) /* original bottom padding */ +
+        env(safe-area-inset-bottom) /* add iOS home-indicator inset */
     );
 
   /* center everything horizontally */
@@ -1130,7 +1141,7 @@ main.free {
 .free-illustration img {
   /* allow the image to shrink if needed instead of forcing overflow */
   width: min(80vw, 360px);
-  max-height: 30vh;       /* never taller than 30% of the viewport */
+  max-height: 30vh; /* never taller than 30% of the viewport */
   object-fit: contain;
 }
 
@@ -1139,7 +1150,7 @@ main.free {
   grid-area: quote;
   max-width: min(90%, 400px);
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
-  border: 1px solid #FFCD60;
+  border: 1px solid #ffcd60;
   border-radius: 1rem;
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   line-height: 1.4;
@@ -1149,16 +1160,16 @@ main.free {
 /* Reflect Again button */
 .free-cta {
   grid-area: cta;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
+  color: #0a1632;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: bold;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
   border-radius: 0.5rem;
   cursor: pointer;
   transition: opacity 0.2s;
-  justify-self: center;  /* explicitly center under quote box */
+  justify-self: center; /* explicitly center under quote box */
 }
 .free-cta:hover {
   opacity: 0.9;
@@ -1168,9 +1179,9 @@ main.free {
   PROFILE PAGE SECTION
 ************************************/
 .profile {
-  flex: 1;                                 /* fill between header & footer */
+  flex: 1; /* fill between header & footer */
   display: grid;
-  place-items: center;                     /* center horizontally & vertically */
+  place-items: center; /* center horizontally & vertically */
   grid-template-areas:
     "text"
     "form"
@@ -1202,30 +1213,30 @@ main.free {
 .profile-form label {
   text-align: left;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
-  color: #FFCD60;
+  color: #ffcd60;
 }
 .profile-form input {
   margin-top: 0.5rem;
   width: 100%;
   padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  color: #FFCD60;
+  color: #ffcd60;
   background: transparent;
-  border: 1px solid #FFCD60;
+  border: 1px solid #ffcd60;
   border-radius: 2rem;
   outline: none;
 }
 .profile-form input::placeholder {
-  color: #FFCD60;
+  color: #ffcd60;
   opacity: 1;
 }
 
 /* confirm button */
 .profile-cta {
   grid-area: cta;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
+  color: #0a1632;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: bold;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
@@ -1244,12 +1255,12 @@ main.login {
   /* fill space between header & footer */
   flex: 0 0 auto;
   min-height: 0;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   /* reduced top padding: only a small gap from header */
   padding: clamp(0.5rem, 2vh, 1rem) 1rem clamp(1rem, 5vh, 2rem);
   gap: clamp(1rem, 3vh, 2rem);
@@ -1268,20 +1279,19 @@ main.login {
 /* THIN ORANGE DIVIDER */
 .login-divider {
   width: 100%;
-  max-width: 480px;                /* cap width if you like */
+  max-width: 480px; /* cap width if you like */
   height: 1px;
-  background-color: #5A5A5A;
+  background-color: #5a5a5a;
   margin-bottom: clamp(1rem, 3vh, 2rem);
 }
 
 /* Logo */
 .login-logo {
-  max-width: min(90%, 300px);  /* fluid up to 300px */
+  max-width: min(90%, 300px); /* fluid up to 300px */
   width: 100%;
-  height: auto;                /* preserve aspect ratio */
+  height: auto; /* preserve aspect ratio */
   margin-bottom: clamp(0.5rem, 2vh, 1rem);
 }
-
 
 /* Title */
 h1.login-title {
@@ -1302,7 +1312,7 @@ h1.login-title {
 /* Field labels */
 .login-form label {
   font-size: clamp(0.9rem, 2.5vw, 1rem);
-  color: #5A5A5A;
+  color: #5a5a5a;
   text-align: left;
 }
 
@@ -1311,46 +1321,44 @@ h1.login-title {
   width: 100%;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  color: #5A5A5A;
+  color: #5a5a5a;
   background: transparent;
-  border: 1px solid #5A5A5A;
+  border: 1px solid #5a5a5a;
   border-radius: 2rem;
   box-sizing: border-box;
 }
 .login-form input::placeholder {
-  color: #5A5A5A;
+  color: #5a5a5a;
   opacity: 1;
 }
 
 /* "Forgot password?" link */
 .forgot {
-	display: flex;
-    justify-content: space-between;	
+  display: flex;
+  justify-content: space-between;
 
   width: min(100%, 400px);
   text-align: left;
   font-size: clamp(0.8rem, 2.5vw, 0.8rem);
   color: #fff;
   text-decoration: none;
-  margin-bottom: clamp(0.5rem, 3vh, 0.5rem);	
+  margin-bottom: clamp(0.5rem, 3vh, 0.5rem);
 }
 .forgot-link {
-
   color: #fff;
   text-decoration: none;
-
 }
 
 /* Login button */
 .btn-login {
   width: 100%;
   max-width: 100%;
-  background: linear-gradient(135deg, #FFCD60 0%, #FFD580 100%);
+  background: linear-gradient(135deg, #ffcd60 0%, #ffd580 100%);
   border: none;
   color: #fff;
-  font-size: clamp(1.3rem,3vh,1.6rem);
+  font-size: clamp(1.3rem, 3vh, 1.6rem);
   font-weight: bold;
-  padding: clamp(0.75rem,2.5vh,1.25rem) clamp(2rem,5vw,3.5rem);
+  padding: clamp(0.75rem, 2.5vh, 1.25rem) clamp(2rem, 5vw, 3.5rem);
   border-radius: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1361,20 +1369,25 @@ h1.login-title {
 }
 
 .btn-login::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
 .btn-login:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 35px rgba(255, 157, 0, 0.4);
-  background: linear-gradient(135deg, #FFD580 0%, #FFCD60 100%);
+  background: linear-gradient(135deg, #ffd580 0%, #ffcd60 100%);
 }
 
 .btn-login:hover::before {
@@ -1434,7 +1447,7 @@ h1.login-title {
 .input-icon {
   width: 1.2em;
   height: 1.2em;
-  fill: #5A5A5A;
+  fill: #5a5a5a;
 }
 
 .form-input {
@@ -1450,7 +1463,7 @@ h1.login-title {
 
 .form-input:focus {
   outline: none;
-  border-color: #5A5A5A;
+  border-color: #5a5a5a;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(90, 90, 90, 0.1);
 }
@@ -1479,7 +1492,7 @@ h1.login-title {
 }
 
 .login-divider::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
@@ -1525,7 +1538,7 @@ h1.login-title {
 }
 
 .link-item:hover {
-  color: #5A5A5A;
+  color: #5a5a5a;
   background: rgba(90, 90, 90, 0.1);
   transform: translateY(-1px);
 }
@@ -1560,7 +1573,7 @@ main.home {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: clamp(1.5rem,5vh,4rem) 1rem clamp(3rem,5vh,2rem);
+  padding: clamp(1.5rem, 5vh, 4rem) 1rem clamp(3rem, 5vh, 2rem);
   box-sizing: border-box;
 
   /* ←– allow vertical scroll if content is too tall */
@@ -1569,20 +1582,20 @@ main.home {
 
 /* ─── 3) Pull out each section ─── */
 .daily-summary {
-  flex: 0 0 auto;                      /* natural height */
+  flex: 0 0 auto; /* natural height */
   width: 100%;
   max-width: 600px;
 }
 .daily-summary h2 {
-  font-size: clamp(1.25rem,4vw,2rem);
-  margin-bottom: clamp(1rem,3vh,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  margin-bottom: clamp(1rem, 3vh, 2rem);
 }
 
 .ai-assistant {
   flex: 0 0 auto;
   width: 100%;
   max-width: 400px;
-  margin: 0 auto clamp(2rem,5vh,4rem);
+  margin: 0 auto clamp(2rem, 5vh, 4rem);
   display: flex;
   justify-content: center;
 }
@@ -1591,20 +1604,20 @@ main.home {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #032449;      /* dark pill background */
-  color: #fff;                   /* white text */
+  background-color: #032449; /* dark pill background */
+  color: #fff; /* white text */
   border: none;
-  border-radius: 2rem;           /* fully rounded */
+  border-radius: 2rem; /* fully rounded */
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 2rem);
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .ai-btn:hover {
   background-color: #0a1a3a;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* size & color of the inline SVG */
@@ -1616,7 +1629,7 @@ main.home {
 
 /* ─── 4) Illustration shrinks if needed ─── */
 .illustration {
-  flex: 1 1 auto;                      /* fill the leftover space */
+  flex: 1 1 auto; /* fill the leftover space */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1639,8 +1652,8 @@ main.home {
   justify-content: space-around;
   background: transparent;
   backdrop-filter: blur(10px);
-  padding: clamp(0.3rem,1.5vh,0.7rem) 1rem;
-  z-index: 1000;  /* float above content */
+  padding: clamp(0.3rem, 1.5vh, 0.7rem) 1rem;
+  z-index: 1000; /* float above content */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1649,7 +1662,7 @@ main.home {
   background: transparent;
   border: none;
   color: rgb(68, 68, 68);
-  font-size: clamp(0.75rem,2.5vw,1rem);
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1684,18 +1697,18 @@ main.home {
   display: flex;
   flex-direction: column;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* background gradients per type */
 .card.wealth {
-  background: linear-gradient(to bottom right, #FFD700, #FFCB05);
+  background: linear-gradient(to bottom right, #ffd700, #ffcb05);
 }
 .card.love {
-  background: linear-gradient(to bottom right, #FF637D, #FF4965);
+  background: linear-gradient(to bottom right, #ff637d, #ff4965);
 }
 .card.health {
-  background: linear-gradient(to bottom right, #3CD070, #1FB7B7);
+  background: linear-gradient(to bottom right, #3cd070, #1fb7b7);
 }
 
 /* the white "inner panel" */
@@ -1727,7 +1740,7 @@ main.home {
 .card-header .header-icon {
   width: 1.5em;
   height: 1.5em;
-  fill: rgba(255,255,255,0.8);
+  fill: rgba(255, 255, 255, 0.8);
 }
 
 /* 2) style each paragraph as flex, so the icon and text align */
@@ -1745,15 +1758,15 @@ main.home {
   flex-shrink: 0;
   width: 1.25em;
   height: 1.25em;
-  fill: currentColor;      /* inherits the grey/gold text color you already have */
-  margin-top: 0.125em;     /* tweak vertical alignment */
+  fill: currentColor; /* inherits the grey/gold text color you already have */
+  margin-top: 0.125em; /* tweak vertical alignment */
 }
 
 .carousel-wrapper {
   position: relative;
   overflow: hidden;
   padding: 0 clamp(0.5rem, 3vw, 1rem);
-  box-sizing: content-box;     /* keep the gutters external to max-width */
+  box-sizing: content-box; /* keep the gutters external to max-width */
 }
 
 .carousel-btn {
@@ -1762,7 +1775,7 @@ main.home {
   transform: translateY(-50%);
   background: rgba(0, 10, 35, 0.75);
   border: none;
-  padding: 0;                   /* we'll size via width/height */
+  padding: 0; /* we'll size via width/height */
   width: clamp(2.5rem, 5vw, 4rem);
   height: clamp(2.5rem, 5vw, 4rem);
   border-radius: 50%;
@@ -1778,21 +1791,25 @@ main.home {
 }
 
 /* position them */
-.carousel-btn.prev { left: 0.5rem; }
-.carousel-btn.next { right: 0.5rem; }
+.carousel-btn.prev {
+  left: 0.5rem;
+}
+.carousel-btn.next {
+  right: 0.5rem;
+}
 
 /* style the SVG inside */
 .icon-chevron {
-  width: 60%;                   /* icon is 60% of button size */
+  width: 60%; /* icon is 60% of button size */
   height: auto;
-  fill: #FFCD60;                /* your brand orange */
+  fill: #ffcd60; /* your brand orange */
 }
 
 /* Force exactly one card in view */
 .carousel {
   display: flex;
   overflow: hidden;
-  gap: clamp(1rem,2vw,2rem);
+  gap: clamp(1rem, 2vw, 2rem);
 
   /* ←– allow x-axis scroll again */
   overflow-x: auto;
@@ -1806,7 +1823,7 @@ main.home {
   max-width: 100%;
   box-sizing: border-box;
   scroll-snap-align: start; /* snap to its left edge */
-  padding: 0 clamp(0.5rem,2vw,1rem); /* optional side gap */
+  padding: 0 clamp(0.5rem, 2vw, 1rem); /* optional side gap */
 }
 
 /* Hide the native scrollbar */
@@ -1833,7 +1850,7 @@ main.home {
 }
 .carousel-dots .dot.active,
 .carousel-dots .dot:hover {
-  background: #FFCD60;
+  background: #ffcd60;
 }
 
 /* hide all detail‐views by default */
@@ -1841,7 +1858,9 @@ main.home {
   display: none;
 }
 /* when un‐hidden */
-.detail-view[hidden] { display: none; }
+.detail-view[hidden] {
+  display: none;
+}
 .detail-view:not([hidden]) {
   display: block;
 }
@@ -1850,46 +1869,46 @@ main.home {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #fff;               /* white text & icons */
-  font-size: clamp(1rem,2.5vw,1.25rem);
+  color: #fff; /* white text & icons */
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   margin-bottom: 1rem;
 }
 
 .detail-header .header-icon {
   width: 1.5em;
   height: 1.5em;
-  fill: currentColor;        /* picks up the white color above */
+  fill: currentColor; /* picks up the white color above */
 }
 
 .btn-back {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;                           /* space between icon & text */
+  gap: 0.5rem; /* space between icon & text */
   background: transparent;
   border: none;
   color: #fff;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   cursor: pointer;
-  padding: 0;                            /* reset any default padding */
+  padding: 0; /* reset any default padding */
 }
 
 .back-icon {
   width: 1.25em;
   height: 1.25em;
-  fill: currentColor;                    /* matches the text color */
+  fill: currentColor; /* matches the text color */
   transition: fill 0.2s;
 }
 
 .btn-back:hover .back-icon {
-  fill: #FFCD60;                         /* your brand orange on hover */
+  fill: #ffcd60; /* your brand orange on hover */
 }
 
 /* ─── DETAIL BLOCK CARDS ─── */
 .detail-block {
-  background-color: #1F2A37CC;
-  border-radius: 0.5rem;                        /* soften the corners */
-  padding: clamp(0.75rem, 2vh, 1rem);           /* give the text some breathing room */
-  margin: clamp(1rem, 3vh, 2rem) 0;             /* vertical gap between each block */
+  background-color: #1f2a37cc;
+  border-radius: 0.5rem; /* soften the corners */
+  padding: clamp(0.75rem, 2vh, 1rem); /* give the text some breathing room */
+  margin: clamp(1rem, 3vh, 2rem) 0; /* vertical gap between each block */
 }
 
 /************************************
@@ -1915,7 +1934,7 @@ main.home {
 
 /* ─── The "cards" ───────────────────────────────────────────── */
 .fortune-item {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   margin-bottom: clamp(1rem, 3vh, 2rem);
@@ -1927,7 +1946,7 @@ main.home {
 }
 
 .fortune-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Date styling: big & responsive */
@@ -1939,12 +1958,12 @@ main.home {
 /* Subtitle ("Today", "Yesterday", etc.) */
 .fortune-item .subtitle {
   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .fortune-item {
-  position: relative;            /* <-- allow absolutely-positioned arrow */
-  background: rgba(255,255,255,0.05);
+  position: relative; /* <-- allow absolutely-positioned arrow */
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   margin-bottom: clamp(rem, 3vh, 2rem);
@@ -1957,18 +1976,18 @@ main.home {
 
 /* the chevron on the right */
 .fortune-item::after {
-  content: '›';                  /* or use '\276F' for a slightly different arrow */
+  content: "›"; /* or use '\276F' for a slightly different arrow */
   position: absolute;
   right: clamp(1rem, 5vw, 2rem);
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: clamp(1.5rem, 4vw, 2rem);
-  pointer-events: none;          /* so clicks go through to the <li> */
+  pointer-events: none; /* so clicks go through to the <li> */
 }
 
 .fortune-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /************************************
@@ -1980,7 +1999,7 @@ main.detail-page {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;         /* allow vertical scrolling */
+  overflow-y: auto; /* allow vertical scrolling */
   padding: clamp(1rem, 5vw, 2rem);
   padding-bottom: clamp(4rem, 10vh, 6rem); /* room for nav */
 
@@ -1991,7 +2010,7 @@ main.detail-page {
 .detail-page .card-list {
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem,3vh,2rem);  /* vertical space between each card */
+  gap: clamp(1rem, 3vh, 2rem); /* vertical space between each card */
 
   /* cap its width & center it */
   max-width: 600px;
@@ -2036,7 +2055,7 @@ main.ai-page {
   display: flex;
   flex-direction: column;
   align-items: center;
- /* padding: clamp(1rem,4vh,2rem) 1rem;*/
+  /* padding: clamp(1rem,4vh,2rem) 1rem;*/
   box-sizing: border-box;
   min-height: 0; /* allow inner to shrink for scrolling */
   margin-bottom: 8rem;
@@ -2047,22 +2066,22 @@ main.ai-page {
 .ai-top {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem,2vw,1rem);
+  gap: clamp(0.5rem, 2vw, 1rem);
   width: 100%;
   max-width: 600px;
-  margin-bottom: clamp(0rem,3vh,0.5rem);
-  padding: 0 clamp(0.5rem,0vw,2rem);
+  margin-bottom: clamp(0rem, 3vh, 0.5rem);
+  padding: 0 clamp(0.5rem, 0vw, 2rem);
   box-sizing: border-box;
 }
 .ai-top h2 {
   margin: 0;
-  font-size: clamp(1.25rem,4vw,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
   color: #001423;
 }
 
 .chat-stage-title {
   margin: 0;
-  font-size: clamp(1.1rem,3.5vw,1.6rem);
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
   color: #001423;
   font-weight: 600;
   text-align: center;
@@ -2084,18 +2103,18 @@ body.chat-mode .chat-stage-title {
 /* Chat/History tabs */
 .ai-tabs {
   display: flex;
-  gap: clamp(1rem,4vw,2rem);
-  margin-bottom: clamp(2rem,5vh,4rem);
+  gap: clamp(1rem, 4vw, 2rem);
+  margin-bottom: clamp(2rem, 5vh, 4rem);
 }
 .ai-tab {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: clamp(0.75rem,2vh,1rem) clamp(1.5rem,4vw,2rem);
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 2rem);
   border-radius: 999px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   color: #001423;
-  font-size: clamp(1rem,2.5vw,1.15rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -2103,21 +2122,21 @@ body.chat-mode .chat-stage-title {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 .ai-tab:hover {
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 .ai-tab.active {
-  background: #FFCD60;
+  background: #ffcd60;
   color: #001423;
-  border-color: #FFCD60;
+  border-color: #ffcd60;
   box-shadow: 0 4px 16px rgba(255, 157, 0, 0.2);
 }
 
 /* illustration */
 .ai-illustration {
   flex: 0 0 auto;
-  margin-bottom: clamp(2rem,5vh,4rem);
+  margin-bottom: clamp(2rem, 5vh, 4rem);
   display: flex;
   justify-content: center;
 }
@@ -2126,7 +2145,7 @@ body.chat-mode .chat-stage-title {
 }
 
 .ai-illustration img {
-  max-height: clamp(20vh,30vh,40vh);
+  max-height: clamp(20vh, 30vh, 40vh);
   width: auto;
   display: block;
 }
@@ -2134,16 +2153,16 @@ body.chat-mode .chat-stage-title {
 /* welcome message */
 .ai-welcome {
   text-align: center;
-  max-width: min(90%,600px);
-  margin-bottom: clamp(4rem,10vh,6rem); /* room for input */
+  max-width: min(90%, 600px);
+  margin-bottom: clamp(4rem, 10vh, 6rem); /* room for input */
 }
 .ai-welcome h1 {
-  font-size: clamp(1.5rem,5vw,2.5rem);
-  margin-bottom: clamp(0.5rem,2vh,1rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: clamp(0.5rem, 2vh, 1rem);
   color: #001423;
 }
 .ai-welcome .subtitle {
-  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   opacity: 0.7;
   color: #666;
 }
@@ -2161,7 +2180,7 @@ body.chat-mode .chat-stage-title {
   justify-content: center;
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #FFCD60, #ffb347);
+  background: linear-gradient(135deg, #ffcd60, #ffb347);
   border-radius: 50%;
   margin: 0 auto 1.5rem;
   box-shadow: 0 4px 16px rgba(255, 157, 0, 0.2);
@@ -2195,7 +2214,7 @@ body.chat-mode .chat-stage-title {
   width: 100%;
   background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(7px);
-  padding: clamp(0.5rem,2vh,1rem);
+  padding: clamp(0.5rem, 2vh, 1rem);
   box-sizing: border-box;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
@@ -2209,28 +2228,28 @@ body.chat-mode .chat-stage-title {
 }
 .ai-input input {
   flex: 1;
-  padding: clamp(0.75rem,2vh,1rem) clamp(1rem,4vw,2rem);
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   border: 2px solid #e9ecef;
   border-radius: 2rem;
   background: #fff;
   color: #001423;
-  font-size: clamp(1rem,2.5vw,1.1rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   outline: none;
   transition: all 0.3s ease;
 }
 .ai-input input:focus {
-  border-color: #FFCD60;
+  border-color: #ffcd60;
   box-shadow: 0 0 0 3px rgba(255, 157, 0, 0.1);
 }
 .ai-input input::placeholder {
   color: #999;
 }
 .ai-input button {
-  background: linear-gradient(135deg, #FFCD60, #ffb347);
+  background: linear-gradient(135deg, #ffcd60, #ffb347);
   border: none;
   border-radius: 50%;
-  width: clamp(3.5rem,5vw,4rem);
-  height: clamp(3.5rem,5vw,4rem);
+  width: clamp(3.5rem, 5vw, 4rem);
+  height: clamp(3.5rem, 5vw, 4rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2263,7 +2282,7 @@ body.chat-mode .chat-stage-title {
   gap: 0.5rem;
   padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   border-radius: 999px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   cursor: pointer;
@@ -2278,27 +2297,27 @@ body.chat-mode .chat-stage-title {
 }
 
 .ai-tab:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .ai-tab.active {
-  background: #FFCD60;    /* your "Chat" brand-blue */
+  background: #ffcd60; /* your "Chat" brand-blue */
   color: #fff;
 }
 
 /* If you want the History tab to swap to a darker pill when active: */
 .ai-tab#tab-history.active {
-  background: #FFCD60;
+  background: #ffcd60;
   color: #fff;
 }
 
 /* History tab specific styling - inactive state */
 .ai-tab#tab-history {
-  color: #5A5A5A;
+  color: #5a5a5a;
 }
 
 .ai-tab#tab-history .tab-icon {
-  fill: #5A5A5A;
+  fill: #5a5a5a;
 }
 
 /* ─── Chat log & messages ───────────────────────────────── */
@@ -2307,7 +2326,7 @@ body.chat-mode .chat-stage-title {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 clamp(1rem,5vw,2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -2344,11 +2363,11 @@ body.chat-mode .chat-stage-title {
 }
 
 .message.you .avatar {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .message.ai .avatar {
-  background: #FFCD60;
+  background: #ffcd60;
 }
 
 .message .text {
@@ -2365,9 +2384,9 @@ body.chat-mode .ai-tabs {
   REGISTER PAGE SECTION
 ************************************/
 .register {
-  flex: 1;                                 /* fill between header & footer */
+  flex: 1; /* fill between header & footer */
   display: grid;
-  place-items: center;                     /* center horizontally & vertically */
+  place-items: center; /* center horizontally & vertically */
   grid-template-areas:
     "text"
     "form"
@@ -2400,30 +2419,30 @@ body.chat-mode .ai-tabs {
 .register-form label {
   text-align: left;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
-  color: #FFCD60;
+  color: #ffcd60;
 }
 .register-form input {
   margin-top: 0.5rem;
   width: 100%;
   padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  color: #FFCD60;
+  color: #ffcd60;
   background: transparent;
-  border: 1px solid #FFCD60;
+  border: 1px solid #ffcd60;
   border-radius: 2rem;
   outline: none;
 }
 .register-form input::placeholder {
-  color: #FFCD60;
+  color: #ffcd60;
   opacity: 1;
 }
 
 /* confirm button */
 .register-cta {
   grid-area: cta;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   border: none;
-  color: #0A1632;
+  color: #0a1632;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: bold;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vw, 3rem);
@@ -2433,7 +2452,7 @@ body.chat-mode .ai-tabs {
 }
 .register-cta:hover {
   opacity: 0.9;
-}  
+}
 
 /************************************
   AI CHAT HISTORY PAGE SECTION
@@ -2442,55 +2461,55 @@ body.chat-mode .ai-tabs {
 .detail-header {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem,2vw,1rem);
+  gap: clamp(0.5rem, 2vw, 1rem);
 
   width: 100%;
   max-width: 600px;
-  padding: 0 clamp(1rem,5vw,2rem);
-  margin: 0 auto clamp(1rem,3vh,2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+  margin: 0 auto clamp(1rem, 3vh, 2rem);
   box-sizing: border-box;
 }
 .detail-header h2 {
   margin: 0;
-  font-size: clamp(1.25rem,4vw,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
   color: #fff;
 }
 
-   /* History section wrapper */
-   .history-section {
-     margin-bottom: clamp(2rem, 5vh, 4rem);
-   }
-   
-   /* History list (vertical stack) */
-   .history-list {
-     list-style: none;
-     padding: 0;
-     margin: 0;
-     display: flex;
-     flex-direction: column;
-     gap: clamp(0.5rem, 2vh, 1rem);
-   }
-   
-   /* Each history item fills the full container width */
-   .history-item {
-     display: block;                  /* ensure block-level */
-     width: 100%;                     /* stretch to fill .history-section */
-     box-sizing: border-box;          /* padding won't overflow */
-     background: rgba(255, 255, 255, 0.1);
-     border-radius: 0.75rem;
-     padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
-     color: #fff;
-     cursor: pointer;
-     transition: background 0.2s;
-   }
-   
-   .history-item:hover {
-     background: rgba(255, 255, 255, 0.2);
-   }
+/* History section wrapper */
+.history-section {
+  margin-bottom: clamp(2rem, 5vh, 4rem);
+}
+
+/* History list (vertical stack) */
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vh, 1rem);
+}
+
+/* Each history item fills the full container width */
+.history-item {
+  display: block; /* ensure block-level */
+  width: 100%; /* stretch to fill .history-section */
+  box-sizing: border-box; /* padding won't overflow */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
 
 /* ─── History Page Input Visibility ───────────── */
- /* Hide the input bar on the history *list* view */
- main.history-page + .ai-input-container {
+/* Hide the input bar on the history *list* view */
+main.history-page + .ai-input-container {
   display: none !important;
 }
 
@@ -2500,7 +2519,7 @@ body.detail-mode main.history-page + .ai-input-container {
 }
 
 /* ─── Detail-Mode Header & Tabs ───────────────── */
- /* Only hide the first ai-top (page header) in detail-mode */
+/* Only hide the first ai-top (page header) in detail-mode */
 body.detail-mode main.history-page > .ai-top:first-child {
   display: none !important;
 }
@@ -2508,8 +2527,6 @@ body.detail-mode main.history-page > .ai-top:first-child {
 body.detail-mode .ai-tabs {
   display: none !important;
 }
-
-
 
 /************************************
 PROFILE PAGE SECTION
@@ -2531,14 +2548,14 @@ PROFILE PAGE SECTION
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   cursor: pointer;
   transition: background 0.2s;
 }
 .profile-item:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .profile-item .info {
@@ -2570,7 +2587,7 @@ PROFILE PAGE SECTION
 
 /* special "Log out" row color */
 .profile-item.logout {
-  color: #FF4C4C;
+  color: #ff4c4c;
 }
 
 /************************************
@@ -2629,7 +2646,7 @@ main.profile-edit-page {
   position: absolute;
   bottom: 0.25rem;
   right: 0.25rem;
-  background: #FFCD60;
+  background: #ffcd60;
   border: none;
   border-radius: 50%;
   width: clamp(2.5rem, 5vw, 4rem);
@@ -2661,7 +2678,7 @@ main.profile-edit-page {
   position: relative;
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
 }
@@ -2670,7 +2687,7 @@ main.profile-edit-page {
   width: 1.5rem;
   height: 1.5rem;
   margin-right: clamp(0.75rem, 2vh, 1rem);
-  fill: #FFCD60;
+  fill: #ffcd60;
 }
 .input-group input {
   flex: 1;
@@ -2695,7 +2712,7 @@ main.profile-edit-page {
 .clear-icon {
   width: 1.25rem;
   height: 1.25rem;
-  fill: rgba(255,255,255,0.8);
+  fill: rgba(255, 255, 255, 0.8);
 }
 
 /* Container to center the button */
@@ -2708,7 +2725,7 @@ main.profile-edit-page {
 /* Oval-shaped Save button */
 .oval-save-btn {
   padding: 0.75rem 2rem;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -2770,7 +2787,7 @@ main.settings-page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   cursor: pointer;
@@ -2779,7 +2796,7 @@ main.settings-page {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 .settings-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Right‐arrow in each row */
@@ -2838,7 +2855,7 @@ main.settings-page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
   cursor: pointer;
@@ -2847,7 +2864,7 @@ main.settings-page {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 .settings-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* arrow icon */
@@ -2868,7 +2885,7 @@ main.change-password-page {
   flex-direction: column;
   padding: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
-  min-height: 0;  /* allow inner flex to shrink for scrolling */
+  min-height: 0; /* allow inner flex to shrink for scrolling */
   align-items: center;
 }
 
@@ -2905,7 +2922,7 @@ main.change-password-page {
   align-items: center;
   justify-content: space-between;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Left-side label */
@@ -2919,7 +2936,7 @@ main.change-password-page {
 .change-password-form .input-group input {
   flex: 1 1 auto;
   margin-left: clamp(1rem, 4vw, 2rem);
-  padding: 0; 
+  padding: 0;
   border: none;
   background: transparent;
   color: #fff;
@@ -2931,13 +2948,13 @@ main.change-password-page {
 .password-info {
   font-size: clamp(0.85rem, 2.5vw, 1rem);
   line-height: 1.4;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   margin-top: clamp(1rem, 2vh, 1.5rem);
 }
 .password-info .forgot-link {
   display: inline-block;
   margin-top: 0.5rem;
-  color: #FFCD60;
+  color: #ffcd60;
   text-decoration: none;
 }
 .password-info .forgot-link:hover {
@@ -2966,7 +2983,7 @@ main.change-password-page {
 /* Oval-shaped Save button styling */
 .oval-save-btn {
   padding: 0.75rem 2.5rem;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -2990,7 +3007,7 @@ main.general-page {
   flex-direction: column;
   padding: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
-  min-height: 0;  /* allow inner flex to shrink for scrolling */
+  min-height: 0; /* allow inner flex to shrink for scrolling */
   align-items: center;
 }
 
@@ -3043,13 +3060,13 @@ main.general-page {
   align-items: center;
   justify-content: space-between;
   padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background 0.2s;
 }
 .settings-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* The text label */
@@ -3063,7 +3080,7 @@ main.general-page {
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
-  fill: rgba(255,255,255,0.6);
+  fill: rgba(255, 255, 255, 0.6);
   transition: fill 0.2s;
 }
 .settings-item:hover .arrow-icon {
@@ -3079,7 +3096,7 @@ main.language-page {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: clamp(1rem,5vw,2rem);
+  padding: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
   min-height: 0;
   align-items: center;
@@ -3098,7 +3115,7 @@ main.language-page {
 .language-page .page-header h2 {
   flex: 1;
   margin: 0;
-  font-size: clamp(1.25rem,4vw,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
   color: #fff;
 }
 
@@ -3111,7 +3128,7 @@ main.language-page {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.25rem,2vh,0.5rem);
+  gap: clamp(0.25rem, 2vh, 0.5rem);
 }
 
 /* Each row (reuse from settings) */
@@ -3119,25 +3136,25 @@ main.language-page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(0.75rem,2vh,1rem) clamp(1rem,4vw,2rem);
-  background: rgba(255,255,255,0.05);
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background 0.2s;
 }
 .language-page .settings-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Highlight the selected row */
 .language-page .settings-item.selected {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Label text */
 .language-page .settings-item .label {
   color: #fff;
-  font-size: clamp(1rem,2.5vw,1.15rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 
 /* Check‐mark icon */
@@ -3145,8 +3162,8 @@ main.language-page {
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
-  fill: #FFCD60;              /* bright check color */
-  display: none;              /* hidden by default */
+  fill: #ffcd60; /* bright check color */
+  display: none; /* hidden by default */
 }
 .language-page .settings-item.selected .check-icon {
   display: block;
@@ -3161,7 +3178,7 @@ main.theme-page {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: clamp(1rem,5vw,2rem);
+  padding: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
   min-height: 0;
   align-items: center;
@@ -3178,7 +3195,7 @@ main.theme-page .page-header {
 main.theme-page .page-header h2 {
   flex: 1;
   margin: 0;
-  font-size: clamp(1.25rem,4vw,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
   color: #fff;
 }
 
@@ -3191,33 +3208,33 @@ main.theme-page .settings-list {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.25rem,2vh,0.5rem);
+  gap: clamp(0.25rem, 2vh, 0.5rem);
 }
 main.theme-page .settings-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(0.75rem,2vh,1rem) clamp(1rem,4vw,2rem);
-  background: rgba(255,255,255,0.05);
+  padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 4vw, 2rem);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background 0.2s;
 }
 main.theme-page .settings-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 main.theme-page .settings-item.selected {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 main.theme-page .settings-item .label {
   color: #fff;
-  font-size: clamp(1rem,2.5vw,1.15rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 main.theme-page .settings-item .check-icon {
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
-  fill: #FFCD60;
+  fill: #ffcd60;
   display: none;
 }
 main.theme-page .settings-item.selected .check-icon {
@@ -3233,7 +3250,7 @@ main.aboutus-page {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: clamp(1rem,5vw,2rem);
+  padding: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
   min-height: 0;
   align-items: center;
@@ -3251,7 +3268,7 @@ main.aboutus-page .page-header {
 main.aboutus-page .page-header h2 {
   flex: 1;
   margin: 0;
-  font-size: clamp(1.25rem,4vw,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
   color: #fff;
 }
 
@@ -3266,7 +3283,7 @@ main.aboutus-page .about-list {
 
 /* Each card */
 main.aboutus-page .about-card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   color: #fff;
@@ -3317,7 +3334,7 @@ main.privacy-page {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: clamp(1rem,5vw,2rem);
+  padding: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
   min-height: 0;
   align-items: center;
@@ -3335,7 +3352,7 @@ main.privacy-page .page-header {
 main.privacy-page .page-header h2 {
   flex: 1;
   margin: 0;
-  font-size: clamp(1.25rem,4vw,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
   color: #fff;
 }
 
@@ -3362,7 +3379,7 @@ main.privacy-page .privacy-list {
 
 /* Each card */
 main.privacy-page .privacy-card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   box-sizing: border-box;
@@ -3409,99 +3426,99 @@ main.privacy-page .privacy-card li {
    STEP 1: FORGOT PASSWORD – ENTER EMAIL
    ============================================ */
 
-   main.forgotpassword-page {
-    /* full-page flex container, centered */
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: clamp(1rem,5vw,2rem);
-    box-sizing: border-box;
-    min-height: 0;
-  }
-  
-  /* Header row */
-  main.forgotpassword-page .page-header {
-    display: flex;
-    align-items: center;
-    gap: clamp(0.5rem,2vw,1rem);
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: clamp(1.5rem,4vh,2rem);
-    padding: 0 clamp(1rem,5vw,2rem);
-  }
-  main.forgotpassword-page .page-header h2 {
-    flex: 1;
-    margin: 0;
-    font-size: clamp(1.25rem,4vw,2rem);
-    color: #fff;
-  }
-  
-  /* Intro paragraph */
-  main.forgotpassword-page .fp-intro {
-    text-align: center;
-    color: rgba(255,255,255,0.9);
-    font-size: clamp(0.9rem,2.5vw,1.1rem);
-    line-height: 1.5;
-    margin-bottom: clamp(1.5rem,4vh,2rem);
-  }
-  
-  /* Input group */
-  main.forgotpassword-page .input-group {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: clamp(1.5rem,4vh,2rem);
-  }
-  main.forgotpassword-page .input-label {
-    color: rgba(255,255,255,0.8);
-    font-size: clamp(0.9rem,2.5vw,1.1rem);
-  }
-  main.forgotpassword-page input[type="email"] {
-    width: 100%;
-    padding: clamp(0.75rem,2vh,1rem);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 0.75rem;
-    background: transparent;
-    color: #fff;
-    font-size: clamp(1rem,2.5vw,1.1rem);
-    outline: none;
-    box-sizing: border-box;
-  }
-  
-  /* Primary action button */
-  main.forgotpassword-page .btn-primary {
-    width: 100%;
-    max-width: 600px;
-    background-color: #FFCD60;
-    color: #fff;
-    border: none;
-    border-radius: 0.75rem;
-    padding: clamp(0.75rem,2vh,1rem);
-    font-size: clamp(1rem,2.5vw,1.15rem);
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  main.forgotpassword-page .btn-primary:hover {
-    background-color: #915e0d;
-  }
-  
-  /* Reuse back button icon style */
-  main.forgotpassword-page .btn-back {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  main.forgotpassword-page .back-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: #fff;
-  }
+main.forgotpassword-page {
+  /* full-page flex container, centered */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+/* Header row */
+main.forgotpassword-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+main.forgotpassword-page .page-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: #fff;
+}
+
+/* Intro paragraph */
+main.forgotpassword-page .fp-intro {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.5;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+}
+
+/* Input group */
+main.forgotpassword-page .input-group {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+}
+main.forgotpassword-page .input-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+main.forgotpassword-page input[type="email"] {
+  width: 100%;
+  padding: clamp(0.75rem, 2vh, 1rem);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  background: transparent;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Primary action button */
+main.forgotpassword-page .btn-primary {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffcd60;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+main.forgotpassword-page .btn-primary:hover {
+  background-color: #915e0d;
+}
+
+/* Reuse back button icon style */
+main.forgotpassword-page .btn-back {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+main.forgotpassword-page .back-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
 
 /* ============================================
    STEP 2: CHECK YOUR EMAIL – ENTER CODE
@@ -3513,7 +3530,7 @@ main.checkemail-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(1rem,5vw,2rem);
+  padding: clamp(1rem, 5vw, 2rem);
   box-sizing: border-box;
   min-height: 0;
 }
@@ -3522,44 +3539,44 @@ main.checkemail-page {
 main.checkemail-page .page-header {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem,2vw,1rem);
+  gap: clamp(0.5rem, 2vw, 1rem);
   width: 100%;
   max-width: 600px;
-  margin-bottom: clamp(1.5rem,4vh,2rem);
-  padding: 0 clamp(1rem,5vw,2rem);
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
 }
 main.checkemail-page .page-header h2 {
   flex: 1;
   margin: 0;
-  font-size: clamp(1.25rem,4vw,2rem);
+  font-size: clamp(1.25rem, 4vw, 2rem);
   color: #fff;
 }
 
 /* Intro paragraph */
 main.checkemail-page .intro {
   text-align: center;
-  color: rgba(255,255,255,0.9);
-  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   line-height: 1.4;
-  margin-bottom: clamp(2rem,4vh,3rem);
+  margin-bottom: clamp(2rem, 4vh, 3rem);
 }
 main.checkemail-page .email-highlight {
   font-weight: bold;
-  color: #FFCD60;
+  color: #ffcd60;
 }
 
 /* Code input boxes */
 main.checkemail-page .code-inputs {
   display: flex;
-  gap: clamp(0.5rem,2vw,1rem);
-  margin-bottom: clamp(2rem,4vh,3rem);
+  gap: clamp(0.5rem, 2vw, 1rem);
+  margin-bottom: clamp(2rem, 4vh, 3rem);
 }
 main.checkemail-page .code-box {
-  width: clamp(12rem,8vw,4rem);
-  height: clamp(3rem,8vw,4rem);
-  font-size: clamp(1.5rem,4vw,2rem);
+  width: clamp(12rem, 8vw, 4rem);
+  height: clamp(3rem, 8vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   text-align: center;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.5rem;
   background: transparent;
   color: #fff;
@@ -3570,12 +3587,12 @@ main.checkemail-page .code-box {
 main.checkemail-page .btn-primary {
   width: 100%;
   max-width: 600px;
-  background-color: #FFCD60;
+  background-color: #ffcd60;
   color: #fff;
   border: none;
   border-radius: 0.75rem;
-  padding: clamp(0.75rem,2vh,1rem);
-  font-size: clamp(1rem,2.5vw,1.15rem);
+  padding: clamp(0.75rem, 2vh, 1rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
   font-weight: bold;
   text-align: center;
   cursor: pointer;
@@ -3587,14 +3604,14 @@ main.checkemail-page .btn-primary:hover {
 
 /* Resend link */
 main.checkemail-page .resend {
-  margin-top: clamp(1rem,3vh,2rem);
-  color: rgba(255,255,255,0.8);
-  font-size: clamp(0.9rem,2.5vw,1.1rem);
+  margin-top: clamp(1rem, 3vh, 2rem);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
 }
 main.checkemail-page .btn-link {
   background: none;
   border: none;
-  color: #FFCD60;
+  color: #ffcd60;
   font-size: inherit;
   cursor: pointer;
   text-decoration: underline;
@@ -3619,83 +3636,83 @@ main.checkemail-page .back-icon {
    STEP 3: PASSWORD RESET – CONFIRMATION
    ============================================ */
 
-   main.reset-page {
-    /* full-page flex container, centered */
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: clamp(1rem,5vw,2rem);
-    box-sizing: border-box;
-    min-height: 0;
-  }
-  
-  /* Header row */
-  main.reset-page .page-header {
-    display: flex;
-    align-items: center;
-    gap: clamp(0.5rem,2vw,1rem);
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: clamp(2rem,4vh,3rem);
-    padding: 0 clamp(1rem,5vw,2rem);
-  }
-  main.reset-page .page-header h2 {
-    flex: 1;
-    margin: 0;
-    font-size: clamp(1.25rem,4vw,2rem);
-    color: #fff;
-  }
-  
-  /* Confirmation paragraph */
-  main.reset-page .confirmation {
-    text-align: center;
-    color: rgba(255,255,255,0.9);
-    font-size: clamp(0.9rem,2.5vw,1.1rem);
-    line-height: 1.5;
-    margin-bottom: clamp(2rem,4vh,3rem);
-  }
-  
-  /* Primary action button */
-  main.reset-page .btn-primary {
-    width: 100%;
-    max-width: 600px;
-    background-color: #FFCD60;
-    color: #fff;
-    border: none;
-    border-radius: 0.75rem;
-    padding: clamp(0.75rem,2vh,1rem);
-    font-size: clamp(1rem,2.5vw,1.15rem);
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  main.reset-page .btn-primary:hover {
-    background-color: #915e0d;
-  }
-  
-  /* Back icon */
-  main.reset-page .btn-back {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  main.reset-page .back-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: #fff;
-  }
-  
+main.reset-page {
+  /* full-page flex container, centered */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 5vw, 2rem);
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+/* Header row */
+main.reset-page .page-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: clamp(2rem, 4vh, 3rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+main.reset-page .page-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: #fff;
+}
+
+/* Confirmation paragraph */
+main.reset-page .confirmation {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.5;
+  margin-bottom: clamp(2rem, 4vh, 3rem);
+}
+
+/* Primary action button */
+main.reset-page .btn-primary {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffcd60;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vh, 1rem);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+main.reset-page .btn-primary:hover {
+  background-color: #915e0d;
+}
+
+/* Back icon */
+main.reset-page .btn-back {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+main.reset-page .back-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+
 /* Login page exclusive background */
 .login-body {
-  background-image: url('img/computer background LIFE.TUNE.png');
+  background-image: url("img/computer background LIFE.TUNE.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  }
+}
 
 /* Result page animations */
 .result-text {
@@ -3708,16 +3725,30 @@ main.checkemail-page .back-icon {
   opacity: 0;
 }
 
-.result-cards .card:nth-child(1) { animation-delay: 0.4s; }
-.result-cards .card:nth-child(2) { animation-delay: 0.6s; }
-.result-cards .card:nth-child(3) { animation-delay: 0.8s; }
-.result-cards .card:nth-child(4) { animation-delay: 1.0s; }
-.result-cards .card:nth-child(5) { animation-delay: 1.2s; }
-.result-cards .card:nth-child(6) { animation-delay: 1.4s; }
-.result-cards .card:nth-child(7) { animation-delay: 1.6s; }
+.result-cards .card:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.result-cards .card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.result-cards .card:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.result-cards .card:nth-child(4) {
+  animation-delay: 1s;
+}
+.result-cards .card:nth-child(5) {
+  animation-delay: 1.2s;
+}
+.result-cards .card:nth-child(6) {
+  animation-delay: 1.4s;
+}
+.result-cards .card:nth-child(7) {
+  animation-delay: 1.6s;
+}
 
 #explore-btn {
-  background: linear-gradient(135deg, #FFCD60, #FFD580);
+  background: linear-gradient(135deg, #ffcd60, #ffd580);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -3730,7 +3761,7 @@ main.checkemail-page .back-icon {
 }
 
 #explore-btn:hover {
-  background: linear-gradient(135deg, #FFD580, #FFCD60);
+  background: linear-gradient(135deg, #ffd580, #ffcd60);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 205, 96, 0.4);
 }
@@ -4129,4 +4160,68 @@ main.checkemail-page .back-icon {
     text-align: center;
   }
 }
-  
+
+/* Container for each message */
+.chat-message {
+  display: flex;
+  align-items: flex-end;
+  margin: 6px 0;
+  gap: 8px;
+}
+
+/* Avatar circle */
+.chat-avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  background: #eee;
+}
+
+/* Message bubble */
+.chat-bubble {
+  padding: 8px 12px;
+  border-radius: 16px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.user-message .chat-bubble {
+  background: #cce5ff; /* Softer blue */
+  color: #000; /* Keep text readable */
+  margin-left: auto; /* Push it to the right */
+  text-align: right;
+  border-radius: 18px 18px 18px 0; /* Rounded corners with “tail” style */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  max-width: 65%;
+  word-wrap: break-word;
+}
+
+.bot-message .chat-bubble {
+  background: #f1f0f0;
+  color: #000;
+  margin-right: auto;
+  text-align: left;
+}
+
+.system-message .chat-bubble {
+  background: #fff3cd;
+  color: #856404;
+  text-align: center;
+}
+
+.error-message .chat-bubble {
+  background: #f8d7da;
+  color: #721c24;
+  text-align: center;
+}
+
+/* Timestamp */
+.chat-timestamp {
+  font-size: 10px;
+  color: #888;
+  align-self: flex-end;
+}

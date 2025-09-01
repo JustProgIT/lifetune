@@ -103,34 +103,6 @@ if(isset($_GET['id'])) {
         font-size: 12px; cursor: pointer;">
         Check Preferences
     </div>
-    
-    <!-- User preferences check from database-->
-    <!-- <script>
-        (async function() {
-            try {
-                const userId = "user123"; // replace with real session/user id or get from cookie/session
-                const response = await fetch(`http://localhost:3000/user-preferences?userId=${encodeURIComponent(userId)}`, {
-                    credentials: 'include'
-                });
-
-                const data = await response.json();
-
-                if (!data.hasPreferences) {
-                    // Redirect to home if no preferences
-                    window.location.href = 'questionaire';
-                } else {
-                    // Preferences exist, show chat
-                    document.getElementById('chat-container').style.visibility = 'visible';
-
-                    // Optionally store preferences for chat use
-                    localStorage.setItem('userPreferences', JSON.stringify(data.preferences));
-                }
-            } catch (err) {
-                alert('Error checking preferences: ' + err);
-                console.error(err);
-            }
-        })();
-    </script> -->
 
     <!-- User preferenences check from localStorage-->
     <script>
