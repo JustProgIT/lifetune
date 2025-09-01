@@ -263,4 +263,6 @@ const gracefulShutdown = () => {
 process.on('SIGTERM', gracefulShutdown);
 process.on('SIGINT', gracefulShutdown);
 
-app.listen(PORT, () => logger.info(`Server running on port ${PORT}`));
+app.listen(4001, "0.0.0.0", () => {
+  console.log("Server running on http://127.0.0.1:4001");
+});

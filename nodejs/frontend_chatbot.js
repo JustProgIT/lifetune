@@ -194,37 +194,38 @@ const callChatAPI = async (userMessage) => {
     await callChatAPI(message);
   };
 
-  const checkLimitStatus = async () => {
-  try {
-    const response = await fetch('/api/getUserBudget.php');
+    const checkLimitStatus = async () => {
+    try {
+        const response = await fetch('/api/getUserBudget.php');
 
-    if (!response.ok) {
-      console.error(`❌ Failed to fetch user budget: ${response.status} (${response.statusText})`);
-      addMessageToUI('Error: Could not retrieve budget information.', 'error-message');
-      return;
+        if (!response.ok) {
+            console.error(`❌ Failed to fetch user budget: ${response.status} (${response.statusText})`);
+            addMessageToUI('Error: Could not retrieve budget information.', 'error-message');
+            return;
+        }
+
+        const data = await response.json();
+
+        if (data.limitExceeded && data.resetTime) {
+            const resetTime = new Date(data.resetTime);
+            addMessageToUI(
+                `You have reached your daily usage limit of RM 0.10. Your limit will reset at ${resetTime.toLocaleString()}.`,
+                'limit-message'
+            );
+            setLimitReachedState(true, data.userId);
+        } else if (data.remaining < 0.05) {
+            addMessageToUI(
+                `Warning: Only RM ${data.remaining.toFixed(2)} remaining in your daily budget.`,
+                'system-message'
+            );
+        }
+
+    } catch (err) {
+        console.error('❌ Error checking limit status:', err);
+        addMessageToUI(`Error: ${err.message}`, 'error-message');
     }
-
-    const data = await response.json();
-
-    if (data.limitExceeded && data.resetTime) {
-      const resetTime = new Date(data.resetTime);
-      addMessageToUI(
-        `You have reached your daily usage limit of RM 0.10. Your limit will reset at ${resetTime.toLocaleString()}.`,
-        'limit-message'
-      );
-      setLimitReachedState(true, data.userId);
-    } else if (data.remaining < 0.05) {
-      addMessageToUI(
-        `Warning: Only RM ${data.remaining.toFixed(2)} remaining in your daily budget.`,
-        'system-message'
-      );
-    }
-
-  } catch (err) {
-    console.error('❌ Error checking limit status:', err);
-    addMessageToUI(`Error: ${err.message}`, 'error-message');
-  }
 };
+
 
 
 

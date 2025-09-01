@@ -546,3 +546,5 @@
 {"level":"info","message":"Server running on port 3000","service":"ai-coach","timestamp":"2025-09-01T07:15:08.672Z"}
 {"level":"info","message":"Database initialized successfully","service":"ai-coach","timestamp":"2025-09-01T07:15:08.722Z"}
 {"level":"info","message":"Shutting down server gracefully","service":"ai-coach","timestamp":"2025-09-01T07:17:52.087Z"}
+{"level":"info","message":"Server running on port 3000","service":"ai-coach","timestamp":"2025-09-01T07:17:54.103Z"}
+{"level":"info","message":"Database initialized successfully","service":"ai-coach","timestamp":"2025-09-01T07:17:54.139Z"}
