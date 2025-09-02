@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- State Management ---
   const conversationState = {
     historys: [],
-    userPreferences: JSON.parse(localStorage.getItem('userPreferences') || '{}'),
     isAwaitingResponse: false,
     limitReached: false,
   };
@@ -167,7 +166,6 @@ const callChatAPI = async (userMessage) => {
       body: JSON.stringify({
         historys: conversationState.historys,
         userMessage: userMessage,
-        userPreferences: conversationState.userPreferences,
         chatbotType  
       })
     });
