@@ -8,98 +8,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Life.Tune - Pick Your Focus</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>AI Life Coach - Choose Your Coach</title>
   <style>
-    .choice-icon {
-      background: none !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
-      padding: 0 !important;
-    }
+      .coach-selector {
+          max-width: 800px;
+          margin: 50px auto;
+          padding: 20px;
+          text-align: center;
+      }
+      
+      .coach-selector h1 {
+          color: #333;
+          margin-bottom: 20px;
+      }
+      
+      .coach-selector p {
+          color: #666;
+          margin-bottom: 40px;
+          font-size: 18px;
+      }
+      
+      .coach-options {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          margin-bottom: 30px;
+      }
+      
+      .coach-card {
+          background: white;
+          border: 2px solid #e0e0e0;
+          border-radius: 10px;
+          padding: 30px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          color: inherit;
+      }
+      
+      .coach-card:hover {
+          border-color: #4CAF50;
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      }
+      
+      .coach-card h3 {
+          color: #4CAF50;
+          margin-bottom: 15px;
+          font-size: 22px;
+      }
+      
+      .coach-card p {
+          color: #666;
+          font-size: 14px;
+          line-height: 1.5;
+          margin-bottom: 0;
+      }
+      
+      .coach-icon {
+          font-size: 48px;
+          margin-bottom: 15px;
+          display: block;
+      }
+      
+      .loading {
+          display: none;
+          text-align: center;
+          color: #666;
+          font-style: italic;
+      }
+      
+      .error {
+          background-color: #ffebee;
+          color: #c62828;
+          padding: 15px;
+          border-radius: 5px;
+          margin: 20px 0;
+          display: none;
+      }
+      
+      }
   </style>
 </head>
-<body class="onboarding-page">
-
-  <main class="onboarding container">
-    <!-- Header -->
-      <div class="ai-top">
-      <img src="img/bird LIFE.TUNE logo.png" alt="Life.Tune logo" class="logo">
+<body>
+    <div class="coach-selector">
+        <h1>Choose Your AI Life Coach</h1>
+        <p>Select the type of coaching that best fits your current needs</p>
+        
+        <div class="error" id="error-message"></div>
+      
+        <div class="coach-options" id="coach-options" style="display: none;">
+            <a href="basic-daily.html" class="coach-card">
+                <span class="coach-icon">🗓️</span>
+                <h3>每日总结 - 基础班</h3>
+                <p>为基础班学员特制的每日总结，帮助你回顾和反思今天的学习与成长。</p>
+            </a>
+            <a href="advanced-daily.html" class="coach-card">
+                <span class="coach-icon">⚙️</span>
+                <h3>每日总结 - 高阶班</h3>
+                <p>针对高阶班学员的结构化深入总结，帮助你分析目标、决策、行为模式、杠杆点和次日执行。</p>
+            </a>
+            <a href="outcome-reflection.html" class="coach-card">
+                <span class="coach-icon">🔍</span>
+                <h3>誓约执行验证</h3>
+                <p>验收及反思誓约成果</p>
+            </a>
+            <a href="decision-making.html" class="coach-card">
+                <span class="coach-icon">🤔</span>
+                <h3>面对进退两难的结果，你能如何做出决定？</h3>
+                <p>明确决策，评估选项的标准和风险，选择并承诺。</p>
+            </a>
+        </div>
     </div>
 
-    <!-- Welcome Section -->
-    <div class="welcome-section">
-      <h1 class="welcome-title"><?= $messages[$lang]['onboard_title'] ?></h1>
-      <p class="welcome-subtitle"><?= $messages[$lang]['onboard_subtitle'] ?></p>
-    </div>
-
-    <!-- Choice buttons with icons -->
-    <div class="onboarding-choices">
-      <button class="btn-choice" value="<?= $messages[$lang]['onboard_value1'] ?>">
-        <div class="choice-icon" style="font-size:2rem;">💼</div>
-        <div class="choice-content">
-          <span class="choice-title"><?= $messages[$lang]['onboard_txt1'] ?></span>
-          <span class="choice-desc"><?= $messages[$lang]['onboard_subtxt1'] ?></span>
-        </div>
-      </button>
-      
-      <button class="btn-choice" value="<?= $messages[$lang]['onboard_value2'] ?>">
-        <div class="choice-icon" style="font-size:2rem;">❤️</div>
-        <div class="choice-content">
-          <span class="choice-title"><?= $messages[$lang]['onboard_txt2'] ?></span>
-          <span class="choice-desc"><?= $messages[$lang]['onboard_subtxt2'] ?></span>
-        </div>
-      </button>
-      
-      <button class="btn-choice" value="<?= $messages[$lang]['onboard_value3'] ?>">
-        <div class="choice-icon" style="font-size:2rem;">🧘</div>
-        <div class="choice-content">
-          <span class="choice-title"><?= $messages[$lang]['onboard_txt3'] ?></span>
-          <span class="choice-desc"><?= $messages[$lang]['onboard_subtxt3'] ?></span>
-        </div>
-      </button>
-      
-      <button class="btn-choice" value="<?= $messages[$lang]['onboard_value4'] ?>">
-        <div class="choice-icon" style="font-size:2rem;">✨</div>
-        <div class="choice-content">
-          <span class="choice-title"><?= $messages[$lang]['onboard_txt4'] ?></span>
-          <span class="choice-desc"><?= $messages[$lang]['onboard_subtxt4'] ?></span>
-        </div>
-      </button>
-    </div>
-  </main>
-
-    <!-- fixed bottom navigation -->
-  <nav class="bottom-nav">
-    <button class="nav-item" aria-label="Home" onclick="location.href='index'">
-      <svg viewBox="0 0 24 24" class="nav-icon"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/></svg>
-      <span class="nav-label"><?= $messages[$lang]['home'] ?></span>
-    </button>
-    <button class="nav-item" aria-label="AI Assistant" onclick="location.href='aichat'">《》
-      <span class="nav-label"><?= $messages[$lang]['aiassistant'] ?></span>
-    </button>
-    <button class="nav-item" aria-label="Insight" onclick="location.href='result'">☀
-      <span class="nav-label"><?= $messages[$lang]['insight'] ?></span>
-    </button>
-    <button class="nav-item" aria-label="Profile" id="profile-btn" onclick="location.href='profile'">⛯
-      <span class="nav-label"><?= $messages[$lang]['profile'] ?></span>
-    </button>
-  </nav> 
-
-  <script>
-    document.querySelectorAll('.btn-back').forEach(btn =>
-    btn.addEventListener('click', () => {
-      window.location.href = 'questionaire';
-    }));
-  
-    document.querySelectorAll('.btn-choice').forEach(btn =>
-    btn.addEventListener('click', () => {
-    const value = btn.value;
-    //  Console.log("Clicked button value:", value);
-      // window.location.href = 'aichat?chat=on&message=' + value;//'aichat';
-      window.location.href = 'aichat';
-    }));
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loading = document.getElementById('loading');
+            const errorMessage = document.getElementById('error-message');
+            const coachOptions = document.getElementById('coach-options');
+          
+                });
+        });
   </script>
 </body>
 </html>
