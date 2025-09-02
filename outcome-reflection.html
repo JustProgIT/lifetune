@@ -61,14 +61,6 @@
         </button>
     </nav> 
 
-    <!-- Preferences status indicator -->
-    <div id="preferences-status" style="position: fixed; bottom: 10px; left: 10px; 
-        background: rgba(255,255,255,0.8); padding: 5px 10px; border-radius: 5px; 
-        font-size: 12px; cursor: pointer;">
-        Check Preferences
-    </div>
-
-    <!-- User preferenences check from localStorage-->
     <script>
         // Set the chatbot type
         const CHATBOT_TYPE = 'outcome-reflection';
@@ -77,29 +69,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const loading = document.getElementById('loading');
             const chatContainer = document.getElementById('chat-container');
-            
-            // Check if user preferences exist
-            fetch('/user-preferences', { credentials: 'include' })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Server responded with status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (!data.hasPreferences) {
-                        // Redirect to the questionnaire if preferences are missing
-                        window.location.href = 'questionnaire.html';
-                        return;
-                    }
-                    
-                    // Store preferences and chatbot type
-                    localStorage.setItem('userPreferences', JSON.stringify(data.preferences));
 
-                    // Load conversation history for this chatbot type
-                    return fetch(`/api/history/${CHATBOT_TYPE}`, { headers: { 'x-user-id': data.preferences?.id || '' }, credentials: 'include' });
-                })
-                .then(response => {
+			fetch(`/api/history/${CHATBOT_TYPE}`, { 
+              credentials: 'include' 
+            }).then(response => {
                     if (response && response.ok) {
                         return response.json();
                     }
@@ -118,7 +91,11 @@
                 .catch(error => {
                     console.error('Error:', error);
                     loading.textContent = 'Error loading coach. Please refresh the page.';
-                });
+                }).finally(() => {
+            loading.style.display = 'none';
+            chatContainer.style.visibility = 'visible';
+          });
+            
         });
         
         function displayConversationHistory(history) {
