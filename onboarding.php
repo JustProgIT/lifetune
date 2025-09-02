@@ -87,22 +87,6 @@
           display: none;
       }
       
-      .preferences-info {
-          background-color: #f5f5f5;
-          padding: 15px;
-          border-radius: 5px;
-          margin-bottom: 20px;
-          font-size: 14px;
-          color: #666;
-      }
-      
-      .preferences-info a {
-          color: #4CAF50;
-          text-decoration: none;
-      }
-      
-      .preferences-info a:hover {
-          text-decoration: underline;
       }
   </style>
 </head>
@@ -111,15 +95,8 @@
         <h1>Choose Your AI Life Coach</h1>
         <p>Select the type of coaching that best fits your current needs</p>
         
-        <div class="preferences-info">
-            <strong>📝 Your preferences are set!</strong> 
-            Each coach will use your personal preferences to provide tailored guidance.
-            <a href="questionnaire.html">Update preferences</a>
-        </div>
-        
         <div class="error" id="error-message"></div>
-        <div class="loading" id="loading">Checking your preferences...</div>
-        
+      
         <div class="coach-options" id="coach-options" style="display: none;">
             <a href="basic-daily.html" class="coach-card">
                 <span class="coach-icon">🗓️</span>
@@ -149,42 +126,7 @@
             const loading = document.getElementById('loading');
             const errorMessage = document.getElementById('error-message');
             const coachOptions = document.getElementById('coach-options');
-            
-            loading.style.display = 'block';
-            
-            // Check if user preferences exist
-            fetch('/user-preferences', { credentials: 'include' })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Server responded with status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    loading.style.display = 'none';
-                    
-                    if (!data.hasPreferences) {
-                        // Redirect to the questionnaire if preferences are missing
-                        window.location.href = 'questionnaire.html';
-                    } else {
-                        // Store preferences in localStorage for use by chat scripts
-                        localStorage.setItem('userPreferences', JSON.stringify(data.preferences));
-                        // Show coach options
-                        coachOptions.style.display = 'grid';
-                    }
-                })
-                .catch(error => {
-                    loading.style.display = 'none';
-                    console.error('Error checking user preferences:', error);
-                    
-                    errorMessage.textContent = 'An error occurred while checking your preferences. Please try again.';
-                    errorMessage.style.display = 'block';
-                    
-                    // Show coach options anyway after 3 seconds
-                    setTimeout(() => {
-                        errorMessage.style.display = 'none';
-                        coachOptions.style.display = 'grid';
-                    }, 3000);
+          
                 });
         });
   </script>
