@@ -1,0 +1,159 @@
+<?php
+include 'config.php';
+include 'translate.php';
+if(empty($_SESSION['email'])) {
+	//header("Location: login");
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>誓约执行验证</title>
+    <link rel="stylesheet" href="zhengying.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Initially hide chat until preferences are confirmed */
+        #chat-container {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class=aichat-page>
+    <!-- Header -->
+    <div class="ai-top">
+      <img src="img/bird LIFE.TUNE logo.png" alt="Life.Tune logo" class="logo">
+        <h1>🔍 誓约执行验证</h1>
+        <p>验收及反思誓约成果</p>
+    </div>
+
+	<div class="coach-nav">
+		<a href="index.html">← 返回教练选择</a> 
+    </div>
+	
+    <div id="chat-container">
+        <div id="chat-box">
+            
+        </div>
+    </div>
+
+    <!-- Input Container -->
+    <div class="ai-input-container">
+        <form id="chat-form" novalidate>
+            <div class="ai-input">
+                <input type="te	xt" id="user-input" name="user_message" placeholder="输入文字..." autocomplete="off" required>
+                <button aria-label="Send" id="send-btn">
+                    <svg viewBox="0 0 24 24" class="send-icon">
+                        <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-item active" aria-label="Home" onclick="location.href='index'">
+            <svg viewBox="0 0 24 24" class="nav-icon"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/></svg>
+            <span class="nav-label" id="home" ><?= $messages[$lang]['home'] ?></span>
+        </button>
+        <button class="nav-item" aria-label="AI Assistant" onclick="location.href='aichat'">《》
+            <span class="nav-label" id="aiassistant"><?= $messages[$lang]['aiassistant'] ?></span>
+        </button>
+        <button class="nav-item" aria-label="Insight" onclick="location.href='result'">☀
+            <span class="nav-label" id="insight"><?= $messages[$lang]['insight'] ?></span>
+        </button>
+        <button class="nav-item" aria-label="Profile" id="profile-btn" onclick="location.href='profile'">⛯
+            <span class="nav-label" id="profile"><?= $messages[$lang]['profile'] ?></span>
+        </button>
+    </nav> 
+
+    <!-- Preferences status indicator -->
+    <div id="preferences-status" style="position: fixed; bottom: 10px; left: 10px; 
+        background: rgba(255,255,255,0.8); padding: 5px 10px; border-radius: 5px; 
+        font-size: 12px; cursor: pointer;">
+        Check Preferences
+    </div>
+
+    <!-- User preferenences check from localStorage-->
+    <script>
+        // Set the chatbot type
+        const CHATBOT_TYPE = 'outcome-reflection';
+        localStorage.setItem('chatbotType', CHATBOT_TYPE);
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const loading = document.getElementById('loading');
+            const chatContainer = document.getElementById('chat-container');
+            
+            // Check if user preferences exist
+            fetch('/user-preferences', { credentials: 'include' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Server responded with status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.hasPreferences) {
+                        // Redirect to the questionnaire if preferences are missing
+                        window.location.href = 'questionnaire.html';
+                        return;
+                    }
+                    
+                    // Store preferences and chatbot type
+                    localStorage.setItem('userPreferences', JSON.stringify(data.preferences));
+
+                    // Load conversation history for this chatbot type
+                    return fetch(`/api/history/${CHATBOT_TYPE}`, { headers: { 'x-user-id': data.preferences?.id || '' }, credentials: 'include' });
+                })
+                .then(response => {
+                    if (response && response.ok) {
+                        return response.json();
+                    }
+                    return { history: [] };
+                })
+                .then(data => {
+                    // Store conversation history
+                    if (data.history && data.history.length > 0) {
+                        localStorage.setItem('conversationHistory', JSON.stringify(data.history));
+                        displayConversationHistory(data.history);
+                    }
+                    
+                    loading.style.display = 'none';
+                    chatContainer.style.visibility = 'visible';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    loading.textContent = 'Error loading coach. Please refresh the page.';
+                });
+        });
+        
+        function displayConversationHistory(history) {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML = '';
+            
+            history.forEach(message => {
+                if (message.role === 'user') {
+                    addMessage(message.parts[0].text, 'user');
+                } else if (message.role === 'model') {
+                    addMessage(message.parts[0].text, 'ai');
+                }
+            });
+        }
+        
+        function addMessage(message, sender) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', sender);
+            messageDiv.textContent = message;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+
+    <!-- Chatbot related functions -->
+    <script src="nodejs/frontend_chatbot.js"></script>
+
+</body>
+</html>
