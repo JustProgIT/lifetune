@@ -8,10 +8,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- State Management ---
   const conversationState = {
     historys: [],
-    userPreferences: JSON.parse(localStorage.getItem('userPreferences') || '{}'),
     isAwaitingResponse: false,
     limitReached: false,
   };
+
+  // Determine chatbot type (stored when user selected a coach)
+  const chatbotType = localStorage.getItem('chatbotType');
+
+  // Welcome messages for each chatbot type
+  const welcomePrompts = {
+      'basic-daily': '今天发生了什么结果？只说事实（你跟谁的结果怎样、你的事业目标进展如何）。',
+      'advanced-daily': '今天发生了什么结果（你跟谁的结果怎样、你的事业目标进展如何）？只要焦点在外，就能容易看清真相...',
+      'outcome-reflection': '你的誓言是什么？**你是谁？**',
+      'decision-making': '你现在有什么选择困扰吗？告诉我发生了什么事情，让你那么纠结。'
+  };
+
+  // Choose welcome message
+  const initialWelcome = welcomePrompts[chatbotType];
+
+  // Seed history with the initial system / model greeting
+  conversationState.historys.push({
+      role: 'model',
+      parts: [{ text: initialWelcome }]
+  });
 
   let limitResetTimer = null;
 
@@ -43,12 +62,6 @@ const addMessageToUI = (text, type) => {
     // Container for single message
     const messageContainer = document.createElement('div');
     messageContainer.classList.add('chat-message', type);
-
-    // Optional: add avatar for bot/user
-    const avatar = document.createElement('div');
-    avatar.classList.add('chat-avatar');
-    avatar.textContent = type === 'bot-message' ? '🤖' : type === 'user-message' ? '🧑' : 'ℹ️';
-    messageContainer.appendChild(avatar);
 
     // Message bubble
     const bubble = document.createElement('div');
@@ -144,21 +157,32 @@ const addMessageToUI = (text, type) => {
   // Sending a chat message via PHP proxy
 const callChatAPI = async (userMessage) => {
   try {
+
+    const chatbotType = localStorage.getItem('chatbotType') || 'basic-daily';
+
     const response = await fetch('/api/postChat.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         historys: conversationState.historys,
         userMessage: userMessage,
-        userPreferences: conversationState.userPreferences
+        chatbotType  
       })
     });
 
     if (!response.ok) {
-      console.error(`❌ API call failed with status ${response.status} (${response.statusText})`);
-      const errorData = await response.json().catch(() => ({ error: 'Unable to parse error response' }));
-      addMessageToUI(`Error: ${errorData.error || 'Unknown error occurred'}`, 'error-message');
-      return;
+        const errorData = await response.json();
+        // Check if this is a limit exceeded error
+        if (errorData.limitExceeded) {
+            const resetTime = new Date(errorData.resetTime);
+            const formattedTime = resetTime.toLocaleString();
+            const limitMessage = `${errorData.error} Your limit will reset at ${formattedTime}.`;
+            addMessageToUI(limitMessage, 'limit-message');
+            setLimitReachedState(true, resetTime);
+        } else {
+            throw new Error(errorData.error || 'Server responded with an error');
+        }
+        return; // stop further processing
     }
 
     const data = await response.json();
@@ -192,6 +216,7 @@ const callChatAPI = async (userMessage) => {
     addMessageToUI(message, 'user-message');
     userInput.value = '';
     await callChatAPI(message);
+    setLoadingState(false);
   };
 
     const checkLimitStatus = async () => {
@@ -209,13 +234,13 @@ const callChatAPI = async (userMessage) => {
         if (data.limitExceeded && data.resetTime) {
             const resetTime = new Date(data.resetTime);
             addMessageToUI(
-                `You have reached your daily usage limit of RM 0.10. Your limit will reset at ${resetTime.toLocaleString()}.`,
+                `You have reached your daily usage limit. Your limit will reset at ${resetTime.toLocaleString()}.`,
                 'limit-message'
             );
             setLimitReachedState(true, data.userId);
         } else if (data.remaining < 0.05) {
             addMessageToUI(
-                `Warning: Only RM ${data.remaining.toFixed(2)} remaining in your daily budget.`,
+                `Warning: You can only ask 1 more question.`,
                 'system-message'
             );
         }
@@ -231,32 +256,7 @@ const callChatAPI = async (userMessage) => {
 
   // --- Welcome Message ---
 
-  const showWelcomeMessage = () => {
-    const prefs = conversationState.userPreferences;
-    let message = "Hello! I'm your AI life coach. How can I help you today?";
-
-    if (prefs.coachingStyle) {
-      switch (prefs.coachingStyle) {
-        case 'Gentle and nurturing':
-          message = "Hello! I'm here to support you in a thoughtful and caring way. What's on your mind today?";
-          break;
-        case 'Direct and actionable':
-          message = "Hello! I'm ready to help you find clear, practical solutions. What would you like to work on today?";
-          break;
-        case 'Reflective and thought-provoking':
-          message = "Hello! I'm here to help you explore your thoughts more deeply. What would you like to reflect on today?";
-          break;
-        case 'Motivational and energetic':
-          message = "Hello! I'm excited to help you reach your goals with energy and enthusiasm! What are we tackling today?";
-          break;
-        case 'Casual and conversational':
-          message = "Hey there! Let's chat about whatever's on your mind today. What's up?";
-          break;
-      }
-    }
-
-    addMessageToUI(message, 'bot-message');
-  };
+  addMessageToUI(initialWelcome, 'bot-message');
 
   // --- Event Listeners ---
   sendBtn.addEventListener('click', sendMessage);
@@ -265,6 +265,5 @@ const callChatAPI = async (userMessage) => {
   });
 
   // --- Initialization ---
-  showWelcomeMessage();
   checkLimitStatus();
 });
