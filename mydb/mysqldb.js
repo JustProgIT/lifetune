@@ -54,6 +54,17 @@ export async function sql_initDb() {
             )
         `);
 
+        await conn.query(`
+          CREATE TABLE IF NOT EXISTS chat_histories (
+            user_id VARCHAR(255) NOT NULL,
+            chatbot_type VARCHAR(255) NOT NULL,
+            history JSON,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (user_id, chatbot_type),
+            FOREIGN KEY (user_id) REFERENCES users (id)
+          )
+        `);
+
         console.log("✅ MySQL Database initialized");
     } finally {
         conn.release();
@@ -129,6 +140,38 @@ export async function sql_getPreferences(userId) {
         stressRelievers: rows[0].stressRelievers,
         problemSolvingMethod: rows[0].problemSolvingMethod
     };
+}
+
+// Get chat history for a specific chatbot type (MySQL)
+export async function getChatHistory(userId, chatbotType) {
+  const [rows] = await conn.query(
+    'SELECT history FROM chat_histories WHERE user_id = ? AND chatbot_type = ? LIMIT 1',
+    [userId, chatbotType]
+  );
+
+  if (!rows.length) return [];
+
+  const h = rows[0].history;
+  // mysql2 may return JSON as an object (with typeCast) or as a string.
+  try {
+    return typeof h === 'string' ? JSON.parse(h) : h;
+  } catch {
+    return [];
+  }
+}
+
+// Save chat history for a specific chatbot type (MySQL)
+export async function saveChatHistory(userId, chatbotType, history) {
+  const payload = JSON.stringify(history);
+
+  await conn.query(
+    `INSERT INTO chat_histories (user_id, chatbot_type, history)
+     VALUES (?, ?, CAST(? AS JSON))
+     ON DUPLICATE KEY UPDATE
+       history = VALUES(history),
+       updated_at = CURRENT_TIMESTAMP`,
+    [userId, chatbotType, payload]
+  );
 }
 
 // ----------------------------
