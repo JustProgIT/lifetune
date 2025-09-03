@@ -88,7 +88,6 @@ const addMessageToUI = (text, type) => {
     if (!conversationState.limitReached) {
       userInput.disabled = isLoading;
       sendBtn.disabled = isLoading;
-      sendBtn.textContent = isLoading ? '...' : 'Send';
     }
   };
 
