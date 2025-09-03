@@ -38,7 +38,6 @@ body {
   min-height: 100vh;
   font-family: "Helvetica Neue", Arial, sans-serif;
   background: #fff2eb;
-  color: #fff;
   line-height: 1.5;
   padding-bottom: env(
     safe-area-inset-bottom
@@ -2064,7 +2063,7 @@ main.ai-page {
 
 /* back arrow + title row */
 .ai-top {
-  display: flex;
+  display: ruby;
   align-items: center;
   gap: clamp(0.5rem, 2vw, 1rem);
   width: 100%;
@@ -2213,11 +2212,9 @@ body.chat-mode .chat-stage-title {
   left: 0;
   width: 100%;
   background: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(7px);
   padding: clamp(0.5rem, 2vh, 1rem);
   box-sizing: border-box;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 .ai-input {
   display: flex;
@@ -4163,7 +4160,7 @@ main.reset-page .back-icon {
 
 /* Container for each message */
 .chat-message {
-  display: flex;
+  display: unset;
   align-items: flex-end;
   margin: 6px 0;
   gap: 8px;
